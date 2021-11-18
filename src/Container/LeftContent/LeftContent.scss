@@ -5,6 +5,7 @@ $font-color-primary: #030202;
 $font-color-secondary: white;
 
 .leftContent-container {
+	font-size: 1.1rem;
 	display: grid;
 	grid-template-rows: 1fr 1fr;
 	padding: 1rem;
@@ -26,6 +27,9 @@ $font-color-secondary: white;
 	div {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
+		p {
+			margin: .8rem;
+		}
 	}
 }
 
@@ -40,6 +44,10 @@ $font-color-secondary: white;
 	color: white;
 	cursor: pointer;
 	padding: .5rem 1rem;
+
+	&:hover {
+		opacity: .7;
+	}
 }
 
 .leftContentBottom-container {
@@ -63,5 +71,8 @@ $font-color-secondary: white;
 .details {
 	font-size: 1.25rem;
 	margin: auto;
+	p {
+		border-bottom: 1px solid black;
+	}
 }
 

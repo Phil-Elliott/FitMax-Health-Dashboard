@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.scss'
 import Navigation from './Container/Navigation/Navigation'
 import LeftContent from './Container/LeftContent/LeftContent'
 import RightContent from './Container/RightContent/RightContent'
 
 const App = () => {
+
   return (
     <div className="app-container">
       <Navigation />
@@ -18,16 +19,10 @@ export default App
 
 
 /*
-  1) create layout 
-    a) Break it into 3 parets 
-        - Nav (hamburger and name when responsive)
-        - Left side
-            - Status on top 
-            - Goals and Results 
-        - Right side 
-            - Graph
-            - Activity 
-    b) Add extra pages
+  1) Add extra pages
         - Add sign in and register page
         - Add settings page 
+  2) Add copys that of main content to other pages
+        - divert to this pages when they are clicked on 
+        - change the information and the data 
 */

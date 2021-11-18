@@ -9,9 +9,8 @@ const data = {
     label: 'My First Dataset',
     data: [300, 50],
     backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'
+      'grey',
+      'black',
     ],
     hoverOffset: 4
   }]
@@ -23,7 +22,7 @@ const LeftContentBottom = () => {
 			<div className="nav-container">
 				<nav className="options">
 			  		<p style={{borderRadius: '50px 0 0 50px'}}>Distance</p>
-			  		<p style={{backgroundColor: 'grey'}}>Calories</p>
+			  		<p>Calories</p>
 			  		<p style={{borderRadius: '0 50px 50px 0'}}>Speed</p>
 			  	</nav>
 			  	<div className="new-container">
@@ -35,9 +34,9 @@ const LeftContentBottom = () => {
 			  		<Doughnut data={data} />
 			  	</div>
 			  	<div className='details'>
-			  		<p>Progress - 7 Miles</p>
-			  		<p>Goal - 21 Miles</p>
-			  		<p>Complete - 33.33%</p>
+			  		<p><strong>Progress</strong> - 7 Miles</p>
+			  		<p><strong>Goal</strong> - 21 Miles</p>
+			  		<p><strong>Complete</strong> - 33.33%</p>
 			  	</div>
 		  	</div>
 		</div>

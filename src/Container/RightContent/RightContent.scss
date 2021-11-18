@@ -5,6 +5,7 @@ $font-color-primary: #030202;
 $font-color-secondary: white;
 
 .rightContent-container {
+	font-size: 1.1rem;
 	height: 100vh;
 	display: grid;
 	grid-template-rows: .1fr .9fr 1fr;
@@ -12,7 +13,7 @@ $font-color-secondary: white;
 }
 
 .main-right-top-container {
-	padding: 1rem 1rem 1rem 0;
+	padding: 1em 1rem 1rem 0;
 }
 
 .right-top-container {
@@ -24,18 +25,22 @@ $font-color-secondary: white;
 
 .top-right-graph {
 	height: auto;
-	width: 500px;
+	width: 450px;
+	margin: 0 auto;
 }
 
 .options {
 	cursor: pointer;
 	display: flex;
-	padding: .25rem;
 	p {
 		background-color: black;
+		border: #ababaa 1px solid;
 		color: white;
 		margin: auto 0;
-		padding: 0 1rem;
+		padding: .25rem 1.5rem;
+		&:hover {
+			background-color: #ababaa;
+		}
 	}
 }
 
@@ -44,9 +49,17 @@ $font-color-secondary: white;
 	margin: 0 7rem;
 }
 
+.main-right-bottom {
+	padding: .3rem 1rem 1rem 0;
+}
+
 .rightContentBottom-container {
-	padding: 1rem;
+	background-color: $background-color;
+	border-radius: 5px;
+	height: 47vh;
+	padding: 2rem;
 	div {
+		border-bottom: 1px solid black;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 	}

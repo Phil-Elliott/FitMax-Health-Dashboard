@@ -6,7 +6,7 @@ const Navigation = () => {
 	return (
 		<div className="navigation-container">
 			<div className="header">
-				<FaHeartbeat style={{color:'#b20a08', fontSize: '1.5rem'}}/>
+				<FaHeartbeat style={{color:'#b20a08', fontSize: '2rem'}}/>
 				<h1>Fit<span style={{color:'#b20a08'}}>Max</span></h1>
 			</div>
 			<nav>
@@ -26,9 +26,9 @@ const Navigation = () => {
 					<FaCog />
 					<h3>Settings</h3>
 				</div>
-				<div>
+				<div className="sign-out">
 					<FaSignOutAlt />
-					<h3>Log out</h3>
+					<h3>Sign out</h3>
 				</div>
 			</nav>
 		</div>
