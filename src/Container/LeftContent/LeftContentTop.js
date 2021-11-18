@@ -1,4 +1,4 @@
-const LeftContentTop = () => {
+const LeftContentTop = ({ openNewRun }) => {
 	return (
 		<div className='leftContentTop-container'>
 			<div className="top-header">
@@ -10,7 +10,7 @@ const LeftContentTop = () => {
 			  		<p>Weekly</p>
 			  		<p style={{borderRadius: '0 50px 50px 0'}}>Monthly</p>
 			  	</nav>
-			  		<p className="new">New Run +</p>
+			  		<p className="new" onClick={openNewRun}>New Run +</p>
 			</section>
 			<div>
 				<p><strong>Distance</strong></p>

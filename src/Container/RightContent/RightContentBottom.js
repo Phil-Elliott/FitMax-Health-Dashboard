@@ -2,7 +2,7 @@ const RightContentBottom = () => {
 	return (
 		<div className="main-right-bottom">
 			<div className="rightContentBottom-container">
-				<h1>Recent Activities</h1>
+				<h1 style={{ marginTop: '0' }}>Recent Activities</h1>
 				<div>
 					<p>11/4</p>
 					<p>7miles</p>

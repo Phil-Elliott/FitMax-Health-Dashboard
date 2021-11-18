@@ -76,3 +76,60 @@ $font-color-secondary: white;
 	}
 }
 
+.form-control { 
+  margin: 10px 0;
+}
+
+.form-control label {
+  display: block;
+  margin: auto 0;
+}
+
+.form-control input {
+  width: 100%;
+  height: 40px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+
+  &:hover {
+  	opacity: .7;
+  }
+}
+
+.btn-block {
+	display: block;
+	margin-top: 30px;
+	width: 100%;
+}
+
+.close-container {
+	margin-left: 14rem;
+	text-align: center;
+
+	.close {
+		background-color: $primary-color;
+		border-radius: 5px;
+		color: white;
+		cursor: pointer;
+		padding: .5rem 1rem;
+		margin-top: 0;
+
+		&:hover {
+			opacity: .7;
+		}
+	}
+}

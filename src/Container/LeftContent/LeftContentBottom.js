@@ -16,7 +16,7 @@ const data = {
   }]
 };
 
-const LeftContentBottom = () => {
+const LeftContentBottom = ({ openNewGoal }) => {
 	return (
 		<div className="leftContentBottom-container">
 			<div className="nav-container">
@@ -26,7 +26,7 @@ const LeftContentBottom = () => {
 			  		<p style={{borderRadius: '0 50px 50px 0'}}>Speed</p>
 			  	</nav>
 			  	<div className="new-container">
-			  		<p className="new">New Goal +</p>
+			  		<p className="new" onClick={openNewGoal}>New Goal +</p>
 			  	</div>
 		  	</div>
 		  	<div class="bottom-left-content">
