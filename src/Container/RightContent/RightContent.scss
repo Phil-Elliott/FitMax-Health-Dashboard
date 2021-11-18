@@ -1,0 +1,53 @@
+$base-color: #eaeaea;
+$background-color: white; 
+$primary-color: #b20a08;
+$font-color-primary: #030202;
+$font-color-secondary: white;
+
+.rightContent-container {
+	height: 100vh;
+	display: grid;
+	grid-template-rows: .1fr .9fr 1fr;
+	padding-right: 1.5rem;
+}
+
+.main-right-top-container {
+	padding: 1rem 1rem 1rem 0;
+}
+
+.right-top-container {
+	background-color: $background-color;
+	border-radius: 5px;
+	height: 45vh;
+	padding: 2rem;
+}
+
+.top-right-graph {
+	height: auto;
+	width: 500px;
+}
+
+.options {
+	cursor: pointer;
+	display: flex;
+	padding: .25rem;
+	p {
+		background-color: black;
+		color: white;
+		margin: auto 0;
+		padding: 0 1rem;
+	}
+}
+
+.right-top-options {
+	padding-bottom: 1rem;
+	margin: 0 7rem;
+}
+
+.rightContentBottom-container {
+	padding: 1rem;
+	div {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}

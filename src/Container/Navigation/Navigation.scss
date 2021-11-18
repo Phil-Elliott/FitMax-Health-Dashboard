@@ -1,0 +1,26 @@
+$base-color: #eaeaea;
+$background-color: white; 
+$primary-color: #b20a08;
+$font-color-primary: #030202;
+$font-color-secondary: white;
+
+.navigation-container {
+	background-color: $font-color-primary; 
+	border-right: solid black 3px; 
+	color: $background-color;
+	padding: 1rem 2rem;
+
+	div {
+		display: flex;	
+		align-items: center;
+
+		h1 {
+			padding-left: 1rem;
+		}
+
+		h3 {
+			padding-left: 1rem;
+			cursor: pointer;
+		}
+	}
+}

@@ -1,0 +1,23 @@
+$base-color: #eaeaea;
+$background-color: #white; 
+$primary-color: #b20a08;
+$font-color-primary: #030202;
+$font-color-secondary: white;
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	color: $font-color-primary;
+	margin: 0; 
+	padding: 0;
+	font-family: Helvetica , sans-serif;
+	background-color: $base-color;
+}
+
+.app-container {
+	display: grid;
+	grid-template-columns: .7fr 2fr 2fr;
+	grid-column-gap: 2rem;
+}
