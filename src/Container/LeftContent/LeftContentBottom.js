@@ -7,7 +7,7 @@ const data = {
   ],
   datasets: [{
     label: 'My First Dataset',
-    data: [300, 50],
+    data: [10, 90],
     backgroundColor: [
       'grey',
       'black',
@@ -26,7 +26,7 @@ const LeftContentBottom = ({ openNewGoal }) => {
 			  		<p style={{borderRadius: '0 50px 50px 0'}}>Speed</p>
 			  	</nav>
 			  	<div className="new-container">
-			  		<p className="new" onClick={openNewGoal}>New Goal +</p>
+			  		<p className="new" onClick={openNewGoal}>New Goal</p>
 			  	</div>
 		  	</div>
 		  	<div class="bottom-left-content">
@@ -34,9 +34,9 @@ const LeftContentBottom = ({ openNewGoal }) => {
 			  		<Doughnut data={data} />
 			  	</div>
 			  	<div className='details'>
-			  		<p><strong>Progress</strong> - 7 Miles</p>
-			  		<p><strong>Goal</strong> - 21 Miles</p>
-			  		<p><strong>Complete</strong> - 33.33%</p>
+			  		<p><strong>Progress</strong> - 0 Miles</p>
+			  		<p><strong>Goal</strong> - 0 Miles</p>
+			  		<p><strong>Complete</strong> - 0.00%</p>
 			  	</div>
 		  	</div>
 		</div>

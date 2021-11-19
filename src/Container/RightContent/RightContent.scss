@@ -9,11 +9,11 @@ $font-color-secondary: white;
 	height: 100vh;
 	display: grid;
 	grid-template-rows: .1fr .9fr 1fr;
-	padding-right: 1.5rem;
+	padding: 1rem 1rem 1rem .5rem;
 }
 
 .main-right-top-container {
-	padding: 1em 1rem 1rem 0;
+	padding-bottom: .6rem;
 }
 
 .right-top-container {
@@ -50,7 +50,7 @@ $font-color-secondary: white;
 }
 
 .main-right-bottom {
-	padding: .3rem 1rem 1rem 0;
+	padding-top: .6rem
 }
 
 .rightContentBottom-container {

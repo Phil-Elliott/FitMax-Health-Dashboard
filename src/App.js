@@ -5,11 +5,26 @@ import LeftContent from './Container/LeftContent/LeftContent'
 import RightContent from './Container/RightContent/RightContent'
 
 const App = () => {
+  const [distance, setDistance] = useState(0)
+  const [calories, setCalories] = useState(0)
+  const [time, setTime] = useState(0)
+
+  const addDistance = (e, l) => {
+    setDistance((Number(e) + (distance)).toFixed(2))
+    setTime(Number(l) + (time))
+  }
+
+
 
   return (
     <div className="app-container">
       <Navigation />
-      <LeftContent />
+      <LeftContent 
+        distance={distance} 
+        calories={calories} 
+        time={time} 
+        addDistance={addDistance}
+      />
       <RightContent />
     </div>
   )

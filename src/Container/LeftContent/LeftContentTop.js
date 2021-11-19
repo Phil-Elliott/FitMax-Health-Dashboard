@@ -1,4 +1,4 @@
-const LeftContentTop = ({ openNewRun }) => {
+const LeftContentTop = ({ openNewRun, distance, calories, time }) => {
 	return (
 		<div className='leftContentTop-container'>
 			<div className="top-header">
@@ -10,19 +10,19 @@ const LeftContentTop = ({ openNewRun }) => {
 			  		<p>Weekly</p>
 			  		<p style={{borderRadius: '0 50px 50px 0'}}>Monthly</p>
 			  	</nav>
-			  		<p className="new" onClick={openNewRun}>New Run +</p>
+			  		<p className="new" onClick={openNewRun}>New Run</p>
 			</section>
 			<div>
 				<p><strong>Distance</strong></p>
-				<p>2.4 Miles</p>
+				<p>{distance} Miles</p>
 			</div>
 			<div>
 				<p><strong>Calories</strong></p>
-				<p>3476</p>
+				<p>{Number(distance) * Number(100)}</p>
 			</div>
 			<div>
 				<p><strong>Average Speed</strong></p>
-				<p>10.64 MPM</p>
+				<p>{((time + 0) / (distance + .0001)).toFixed(2)} Mins Per Mile</p>
 			</div>
 		</div>
 	)
