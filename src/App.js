@@ -11,6 +11,7 @@ const App = () => {
   const [caloriesGoal, setCaloriesGoal] = useState(0)
   const [time, setTime] = useState(0)
   const [timeGoal, setTimeGoal] = useState(0)
+  const [runs, setRuns] = useState([])
 
   const addDistance = (e, l) => {
     setDistance(Number(e) + (distance))
@@ -21,10 +22,14 @@ const App = () => {
   const addGoal = (d, c, t) => {
     setDistanceGoal(Number(d))
     setCaloriesGoal(Number(c))
-    setTimeGoal(Number(t))
+    setTimeGoal(Number(t))  
   }
 
-
+  const addRun = (run) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newRun = { id, ...run }
+    setRuns([...runs, newRun])
+  }
 
   return (
     <div className="app-container">
@@ -38,8 +43,11 @@ const App = () => {
         timeGoal={timeGoal}
         addDistance={addDistance}
         addGoal={addGoal}
+        addRun={addRun}
       />
-      <RightContent />
+      <RightContent 
+        runs={runs}
+      />
     </div>
   )
 }

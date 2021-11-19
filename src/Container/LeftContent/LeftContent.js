@@ -5,7 +5,7 @@ import AddNewRun from './AddNewRun'
 import AddNewGoal from './AddNewGoal'
 import './LeftContent.scss'
 
-const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, timeGoal, addDistance, addGoal}) => {
+const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, timeGoal, addDistance, addGoal, addRun }) => {
 	const [showNewRun, setShowNewRun] = useState(true) 
 	const [showNewGoal, setShowNewGoal] = useState(true) 
 
@@ -25,11 +25,13 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 					openNewRun={openCloseNewRun} 
 					distance={distance} 
 					calories={calories} 
-					time={time}/> 
+					time={time}
+				/> 
 				: 
 				<AddNewRun 
 					closeNewRun={openCloseNewRun} 
 					addDistance={addDistance}
+					addRun={addRun}
 					/>}
 			{showNewGoal ? 
 				<LeftContentBottom 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const AddNewRun = ({ closeNewRun, addDistance }) => {
+const AddNewRun = ({ closeNewRun, addDistance, addRun }) => {
 	const [distanceNumber, setDistanceNumber] = useState('')
 	const [lengthNumber, setlengthNumber] = useState('')
 	const [date, setDate] = useState('')
@@ -15,7 +15,7 @@ const AddNewRun = ({ closeNewRun, addDistance }) => {
 
 		addDistance(distanceNumber, lengthNumber)
 
-		console.log(date)
+		addRun({distanceNumber, lengthNumber, date})
 
 		closeNewRun()
 	}
