@@ -5,7 +5,7 @@ const AddNewRun = ({ closeNewRun, addDistance }) => {
 	const [lengthNumber, setlengthNumber] = useState('')
 	const [date, setDate] = useState('')
 
-	const onSubmit = (e) => {
+	const onSubmit = (e) => { 
 		e.preventDefault()
 
 		if (!distanceNumber) {
@@ -14,6 +14,10 @@ const AddNewRun = ({ closeNewRun, addDistance }) => {
 		}
 
 		addDistance(distanceNumber, lengthNumber)
+
+		console.log(date)
+
+		closeNewRun()
 	}
 
 

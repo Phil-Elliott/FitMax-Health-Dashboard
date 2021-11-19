@@ -1,22 +1,25 @@
+import React, { useState } from 'react'
 import { Doughnut } from 'react-chartjs-2';
 
-const data = {
-  labels: [
-    'Complete',
-    'Goal',
-  ],
-  datasets: [{
-    label: 'My First Dataset',
-    data: [10, 90],
-    backgroundColor: [
-      'grey',
-      'black',
-    ],
-    hoverOffset: 4
-  }]
-};
+const LeftContentBottom = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGoal, timeGoal }) => {
 
-const LeftContentBottom = ({ openNewGoal }) => {
+
+	const data = {
+	  labels: [
+	    'Complete',
+	    'Goal',
+	  ],
+	  datasets: [{
+	    label: 'My First Dataset',
+	    data: [(distance), (distanceGoal - distance)],
+	    backgroundColor: [
+	      'grey',
+	      'black',
+	    ],
+	    hoverOffset: 4
+	  }]
+	};
+
 	return (
 		<div className="leftContentBottom-container">
 			<div className="nav-container">
@@ -29,14 +32,14 @@ const LeftContentBottom = ({ openNewGoal }) => {
 			  		<p className="new" onClick={openNewGoal}>New Goal</p>
 			  	</div>
 		  	</div>
-		  	<div class="bottom-left-content">
+		  	<div className="bottom-left-content">
 			  	<div className='graph'>
 			  		<Doughnut data={data} />
 			  	</div>
 			  	<div className='details'>
-			  		<p><strong>Progress</strong> - 0 Miles</p>
-			  		<p><strong>Goal</strong> - 0 Miles</p>
-			  		<p><strong>Complete</strong> - 0.00%</p>
+			  		<p><strong>Progress</strong> - {distance} Miles</p>
+			  		<p><strong>Goal</strong> - {distanceGoal} Miles</p>
+			  		<p><strong>Complete</strong> - {distance/distanceGoal*100}%</p>
 			  	</div>
 		  	</div>
 		</div>
@@ -45,23 +48,3 @@ const LeftContentBottom = ({ openNewGoal }) => {
 
 export default LeftContentBottom
 
-/*
-	<h1 style={{padding:'.7rem 0'}}>Goals</h1>
-			<div>
-				<p>Distance (Miles)</p>
-				<p>100</p>
-				<p>250</p>
-			</div>
-			<div>
-				<p>Calories</p>
-				<p>6532</p>
-				<p>10000</p>
-			</div>
-			<div>
-				<p>Average Speed (MPM)</p>
-				<p>11.82</p>
-				<p>8.43</p>
-			</div>
-
-
-*/

@@ -6,12 +6,21 @@ import RightContent from './Container/RightContent/RightContent'
 
 const App = () => {
   const [distance, setDistance] = useState(0)
+  const [distanceGoal, setDistanceGoal] = useState(0)
   const [calories, setCalories] = useState(0)
+  const [caloriesGoal, setCaloriesGoal] = useState(0)
   const [time, setTime] = useState(0)
+  const [timeGoal, setTimeGoal] = useState(0)
 
   const addDistance = (e, l) => {
-    setDistance((Number(e) + (distance)).toFixed(2))
+    setDistance(Number(e) + (distance))
     setTime(Number(l) + (time))
+  }
+
+  const addGoal = (d, c, t) => {
+    setDistanceGoal(Number(d))
+    setCaloriesGoal(Number(c))
+    setTimeGoal(Number(t))
   }
 
 
@@ -21,9 +30,13 @@ const App = () => {
       <Navigation />
       <LeftContent 
         distance={distance} 
+        distanceGoal={distanceGoal}
         calories={calories} 
+        caloriesGoal={caloriesGoal}
         time={time} 
+        timeGoal={timeGoal}
         addDistance={addDistance}
+        addGoal={addGoal}
       />
       <RightContent />
     </div>

@@ -14,7 +14,7 @@ const LeftContentTop = ({ openNewRun, distance, calories, time }) => {
 			</section>
 			<div>
 				<p><strong>Distance</strong></p>
-				<p>{distance} Miles</p>
+				<p>{distance.toFixed(2)} Miles</p>
 			</div>
 			<div>
 				<p><strong>Calories</strong></p>
