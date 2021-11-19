@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import LeftContentTop from './LeftContentTop'
-import LeftContentBottom from './LeftContentBottom'
+import LeftContentBottom from './LeftContentBottom/LeftContentBottom'
 import AddNewRun from './AddNewRun'
 import AddNewGoal from './AddNewGoal'
 import './LeftContent.scss'

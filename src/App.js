@@ -15,6 +15,7 @@ const App = () => {
   const addDistance = (e, l) => {
     setDistance(Number(e) + (distance))
     setTime(Number(l) + (time))
+    setCalories(Number(distance * 100))
   }
 
   const addGoal = (d, c, t) => {

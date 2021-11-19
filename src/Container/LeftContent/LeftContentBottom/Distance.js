@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Doughnut } from 'react-chartjs-2';
 
-const LeftContentBottom = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGoal, timeGoal }) => {
-
+const Distance = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGoal, timeGoal, changePage }) => {
 
 	const data = {
 	  labels: [
@@ -11,9 +10,9 @@ const LeftContentBottom = ({ openNewGoal, distance, calories, time, distanceGoal
 	  ],
 	  datasets: [{
 	    label: 'My First Dataset',
-	    data: [(distance), (distanceGoal - distance)],
+	    data: [(distance), ((distanceGoal === 0) ? 0 : (distanceGoal - distance))],
 	    backgroundColor: [
-	      'grey',
+	      '#b20a08',
 	      'black',
 	    ],
 	    hoverOffset: 4
@@ -24,9 +23,9 @@ const LeftContentBottom = ({ openNewGoal, distance, calories, time, distanceGoal
 		<div className="leftContentBottom-container">
 			<div className="nav-container">
 				<nav className="options">
-			  		<p style={{borderRadius: '50px 0 0 50px'}}>Distance</p>
-			  		<p>Calories</p>
-			  		<p style={{borderRadius: '0 50px 50px 0'}}>Speed</p>
+			  		<p style={{borderRadius: '50px 0 0 50px', backgroundColor: 'grey'}} onClick={() => changePage('Distance')}>Distance</p>
+			  		<p onClick={() => changePage('Calories')}>Calories</p>
+			  		<p style={{borderRadius: '0 50px 50px 0'}} onClick={() => changePage('Speed')}>Speed</p>
 			  	</nav>
 			  	<div className="new-container">
 			  		<p className="new" onClick={openNewGoal}>New Goal</p>
@@ -39,12 +38,12 @@ const LeftContentBottom = ({ openNewGoal, distance, calories, time, distanceGoal
 			  	<div className='details'>
 			  		<p><strong>Progress</strong> - {distance} Miles</p>
 			  		<p><strong>Goal</strong> - {distanceGoal} Miles</p>
-			  		<p><strong>Complete</strong> - {distance/distanceGoal*100}%</p>
+			  		<p><strong>Complete</strong> - {((distance === 0) ? 0 : distance/distanceGoal*100).toFixed(2)}%</p>
 			  	</div>
 		  	</div>
 		</div>
 	)
 }
 
-export default LeftContentBottom
+export default Distance
 
