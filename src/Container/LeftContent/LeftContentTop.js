@@ -1,4 +1,4 @@
-const LeftContentTop = ({ openNewRun, distance, calories, time }) => {
+const LeftContentTop = ({ openNewRun, distance, calories, time, changeData }) => {
 	return (
 		<div className='leftContentTop-container'>
 			<div className="top-header">
@@ -6,9 +6,9 @@ const LeftContentTop = ({ openNewRun, distance, calories, time }) => {
 			</div>
 			<section className="nav-container">
 				<nav className="options">
-			  		<p style={{borderRadius: '50px 0 0 50px'}}>Daily</p>
-			  		<p>Weekly</p>
-			  		<p style={{borderRadius: '0 50px 50px 0'}}>Monthly</p>
+			  		<p onClick={() => changeData('Daily')} style={{borderRadius: '50px 0 0 50px'}}>Daily</p>
+			  		<p onClick={() => changeData('Weekly')}>Weekly</p>
+			  		<p onClick={() => changeData('Monthly')} style={{borderRadius: '0 50px 50px 0'}}>Monthly</p>
 			  	</nav>
 			  		<p className="new" onClick={openNewRun}>New Run</p>
 			</section>

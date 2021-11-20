@@ -8,7 +8,8 @@ import './LeftContent.scss'
 const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, timeGoal, addDistance, addGoal, addRun }) => {
 	const [showNewRun, setShowNewRun] = useState(true) 
 	const [showNewGoal, setShowNewGoal] = useState(true) 
-	const [changeNumbers, setChangeNumbers] = useState('')
+	const [changeNumbers, setChangeNumbers] = useState('Daily')
+	const [newDistance, setNewDistance] = useState('')
 
 	const openCloseNewRun = () => {
 		setShowNewRun(!showNewRun)
@@ -20,6 +21,17 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 
 	const changeData = (e) => {
 		setChangeNumbers(e)
+		const changeDistance = () => {
+			if (changeNumbers === 'Daily') {
+				console.log('1')
+			} else if (changeNumbers === 'Weekly') {
+				console.log('2')
+			} else {
+				console.log('3')
+			}
+		}
+
+		changeDistance()
 	}
 
 	return (
