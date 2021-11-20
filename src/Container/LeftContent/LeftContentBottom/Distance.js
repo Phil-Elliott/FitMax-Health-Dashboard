@@ -23,7 +23,7 @@ const Distance = ({ openNewGoal, distance, calories, time, distanceGoal, calorie
 		<div className="leftContentBottom-container">
 			<div className="nav-container">
 				<nav className="options">
-			  		<p style={{borderRadius: '50px 0 0 50px', backgroundColor: 'grey'}} onClick={() => changePage('Distance')}>Distance</p>
+			  		<p style={{borderRadius: '50px 0 0 50px', backgroundColor: '#ababaa'}} onClick={() => changePage('Distance')}>Distance</p>
 			  		<p onClick={() => changePage('Calories')}>Calories</p>
 			  		<p style={{borderRadius: '0 50px 50px 0'}} onClick={() => changePage('Speed')}>Speed</p>
 			  	</nav>

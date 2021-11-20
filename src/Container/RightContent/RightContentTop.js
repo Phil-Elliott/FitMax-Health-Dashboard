@@ -2,12 +2,14 @@ import React from 'react'
 import { Line } from 'react-chartjs-2';
 
 const RightContentTop = ({ runs }) => {
+  const runData = runs.map(run => run.distanceNumber)
+
   const data = {
-    labels: ['1', '2', '3', '4', '5', '6', '7'],
+    labels: [...Array(32).keys()],
     datasets: [
       {
         label: 'Miles',
-        data: [1, 87.8, 103.4, 97.3, 109.6, 143.9, 180],
+        data: (runData).slice(-7),
         fill: false,
         backgroundColor: '#b20a08',
         borderColor: 'rgba(255, 99, 132, 0.2)', 

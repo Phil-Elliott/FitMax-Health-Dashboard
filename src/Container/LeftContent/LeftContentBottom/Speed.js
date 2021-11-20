@@ -10,7 +10,7 @@ const Speed = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGo
 	  ],
 	  datasets: [{
 	    label: 'My First Dataset',
-	    data: [(time), ((timeGoal === 0) ? 0 : (timeGoal - time))],
+	    data: [(timeGoal/(time/distance)), ((timeGoal === 0) ? 0 : (1-(timeGoal/(time/distance))))],
 	    backgroundColor: [
 	      '#b20a08',
 	      'black',
@@ -25,7 +25,7 @@ const Speed = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGo
 				<nav className="options">
 			  		<p style={{borderRadius: '50px 0 0 50px'}} onClick={() => changePage('Distance')}>Distance</p>
 			  		<p onClick={() => changePage('Calories')}>Calories</p>
-			  		<p style={{borderRadius: '0 50px 50px 0', backgroundColor: 'grey'}} onClick={() => changePage('Speed')}>Speed</p>
+			  		<p style={{borderRadius: '0 50px 50px 0', backgroundColor: '#ababaa'}} onClick={() => changePage('Speed')}>Speed</p>
 			  	</nav>
 			  	<div className="new-container">
 			  		<p className="new" onClick={openNewGoal}>New Goal</p>

@@ -9,7 +9,9 @@ const RightContent = ({ runs }) => {
 			<RightContentTop 
 				runs={runs}
 			/>
-			<RightContentBottom />
+			<RightContentBottom 
+				runs={runs}
+			/>
 		</div>
 	)
 }

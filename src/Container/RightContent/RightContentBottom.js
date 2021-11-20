@@ -1,22 +1,26 @@
-const RightContentBottom = () => {
+const RightContentBottom = ({ runs }) => {
+	const runDistance = runs.map(run => run.distanceNumber).slice(-3)
+	const runDate = runs.map(run => run.date).slice(-3)
+	const runSpeed = runs.map(run => run.lengthNumber).slice(-3)
+
 	return (
 		<div className="main-right-bottom">
 			<div className="rightContentBottom-container">
 				<h1 style={{ marginTop: '0' }}>Recent Activities</h1>
 				<div>
-					<p>11/4</p>
-					<p>7miles</p>
-					<p>1hr43mins</p>
+					<p>{runDate[2]}</p>
+					<p>{runDistance[2]} Miles</p>
+					<p>{runSpeed[2]} Mins</p>
 				</div>
 				<div>
-					<p>11/6</p>
-					<p>2miles</p>
-					<p>23mins</p>
+					<p>{runDate[1]}</p>
+					<p>{runDistance[1]} Miles</p>
+					<p>{runSpeed[1]} Mins</p>
 				</div>
 				<div>
-					<p>11/9</p>
-					<p>5.3miles</p>
-					<p>1hr12mins</p>
+					<p>{runDate[0]}</p>
+					<p>{runDistance[0]} Miles</p>
+					<p>{runSpeed[0]} Mins</p>
 				</div>
 			</div>
 		</div>

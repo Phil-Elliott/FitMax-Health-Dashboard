@@ -10,7 +10,7 @@ const Calories = ({ openNewGoal, distance, calories, time, distanceGoal, calorie
 	  ],
 	  datasets: [{
 	    label: 'My First Dataset',
-	    data: [(calories), ((caloriesGoal === 0) ? 0 : (caloriesGoal - calories))],
+	    data: [(distance * 100), ((caloriesGoal === 0) ? 0 : (caloriesGoal - calories))],
 	    backgroundColor: [
 	      '#b20a08',
 	      'black',
@@ -24,7 +24,7 @@ const Calories = ({ openNewGoal, distance, calories, time, distanceGoal, calorie
 			<div className="nav-container">
 				<nav className="options">
 			  		<p style={{borderRadius: '50px 0 0 50px'}} onClick={() => changePage('Distance')}>Distance</p>
-			  		<p style={{backgroundColor: 'grey'}} onClick={() => changePage('Calories')}>Calories</p>
+			  		<p style={{backgroundColor: '#ababaa'}} onClick={() => changePage('Calories')}>Calories</p>
 			  		<p style={{borderRadius: '0 50px 50px 0'}} onClick={() => changePage('Speed')}>Speed</p>
 			  	</nav>
 			  	<div className="new-container">
@@ -36,9 +36,9 @@ const Calories = ({ openNewGoal, distance, calories, time, distanceGoal, calorie
 			  		<Doughnut data={data} />
 			  	</div>
 			  	<div className='details'>
-			  		<p><strong>Progress</strong> - {calories} Cals</p>
+			  		<p><strong>Progress</strong> - {distance * 100} Cals</p>
 			  		<p><strong>Goal</strong> - {caloriesGoal} Cals</p>
-			  		<p><strong>Complete</strong> - {((calories === 0) ? 0 : calories/caloriesGoal*100).toFixed(2)}%</p>
+			  		<p><strong>Complete</strong> - {((calories === 0) ? 0 : (distance * 100)/caloriesGoal*100).toFixed(2)}%</p>
 			  	</div>
 		  	</div>
 		</div>
