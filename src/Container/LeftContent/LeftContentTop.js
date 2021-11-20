@@ -1,4 +1,4 @@
-const LeftContentTop = ({ openNewRun, distance, calories, time, changeData, newArray }) => {
+const LeftContentTop = ({ openNewRun, distance, calories, time, changeData, newArray, newTime, newDistance }) => {
 
 	return (
 		<div className='leftContentTop-container'>

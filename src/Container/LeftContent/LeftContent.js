@@ -10,7 +10,8 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 	const [showNewGoal, setShowNewGoal] = useState(true) 
 	const [changeNumbers, setChangeNumbers] = useState('Daily')
 	const [newArray, setNewArray] = useState([])
-	const [newDistance, setNewDistance] = useState([])
+	const [newDistance, setNewDistance] = useState()
+	const [newTime, setNewTime] = useState()
 
 	const openCloseNewRun = () => {
 		setShowNewRun(!showNewRun)
@@ -38,10 +39,27 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 			}
 		}
 
-		const runDistance = newArray.map(item => item.distanceNumber)
-		console.log(runDistance)
-		console.log(newArray)
+		const sumArray = () => {
+			const distance = newArray.map(item => item.distanceNumber) 
+			const time = newArray.map(item => item.lengthNumber)
+
+			function simpleArraySum(newItem) {
+			  var sum = 0;
+			  for (var i = 0; i < newItem.length; i++) {
+			    sum += Number(newItem[i])
+			  }
+			  return sum
+			}
+
+			setNewDistance(simpleArraySum(distance))
+			setNewTime(simpleArraySum(time))
+			console.log(newDistance)
+			console.log(newTime)	
+		}
+
+		
 		changeDistance()
+		sumArray()
 	}
 
 	return (
@@ -53,7 +71,8 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 					calories={calories} 
 					time={time}
 					changeData={changeData}
-					newArray = {newArray}
+					newTime={newTime}
+					newDistance={newDistance}
 				/> 
 				: 
 				<AddNewRun 
