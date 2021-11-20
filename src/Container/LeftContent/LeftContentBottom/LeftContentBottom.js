@@ -13,9 +13,9 @@ const LeftContentBottom = ({ openNewGoal, distance, calories, time, distanceGoal
 
 	return (
 		<div>
-			{(change === 'Distance') 
+			{(change === 'Speed') 
 				? (
-					<Distance 
+					<Speed 
 						openNewGoal={openNewGoal}
 						distance={distance} 
 						calories={calories} 
@@ -38,7 +38,7 @@ const LeftContentBottom = ({ openNewGoal, distance, calories, time, distanceGoal
 							changePage={changePage}
 						/>
 					) : (
-						<Speed 
+						<Distance 
 							openNewGoal={openNewGoal}
 							distance={distance} 
 							calories={calories} 

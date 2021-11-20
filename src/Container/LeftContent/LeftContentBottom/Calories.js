@@ -10,10 +10,10 @@ const Calories = ({ openNewGoal, distance, calories, time, distanceGoal, calorie
 	  ],
 	  datasets: [{
 	    label: 'My First Dataset',
-	    data: [(distance * 100), ((caloriesGoal === 0) ? 0 : (caloriesGoal - calories))],
+	    data: [(distance * 100), ((caloriesGoal === 0) ? 0 : (caloriesGoal - (distance * 100)))],
 	    backgroundColor: [
 	      '#b20a08',
-	      'black',
+	      '#070707',
 	    ],
 	    hoverOffset: 4
 	  }]

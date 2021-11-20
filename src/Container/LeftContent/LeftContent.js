@@ -8,6 +8,7 @@ import './LeftContent.scss'
 const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, timeGoal, addDistance, addGoal, addRun }) => {
 	const [showNewRun, setShowNewRun] = useState(true) 
 	const [showNewGoal, setShowNewGoal] = useState(true) 
+	const [changeNumbers, setChangeNumbers] = useState('')
 
 	const openCloseNewRun = () => {
 		setShowNewRun(!showNewRun)
@@ -17,6 +18,9 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 		setShowNewGoal(!showNewGoal)
 	}
 
+	const changeData = (e) => {
+		setChangeNumbers(e)
+	}
 
 	return (
 		<div className="leftContent-container">
@@ -26,6 +30,7 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 					distance={distance} 
 					calories={calories} 
 					time={time}
+					changeData={changeData}
 				/> 
 				: 
 				<AddNewRun 

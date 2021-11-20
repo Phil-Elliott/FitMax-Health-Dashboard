@@ -13,11 +13,11 @@ const RightContentTop = ({ runs }) => {
 
   return (
     <div>
-      {(change === 'Distance') 
+      {(change === 'Speed') 
         ? (
-          <Distance 
-            runs = {runs}
-            changePage={changePage}
+          <Speed 
+              runs = {runs}
+              changePage={changePage}
           />
         ) : ((change === 'Calories') 
           ? ( 
@@ -26,7 +26,7 @@ const RightContentTop = ({ runs }) => {
               changePage={changePage}
             />
           ) : (
-            <Speed 
+            <Distance 
               runs = {runs}
               changePage={changePage}
             />))
@@ -37,3 +37,4 @@ const RightContentTop = ({ runs }) => {
   
 
 export default RightContentTop;
+
