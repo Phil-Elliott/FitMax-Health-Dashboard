@@ -29,7 +29,6 @@ const App = () => {
     const id = Math.floor(Math.random() * 10000) + 1
     const newRun = { id, ...run }
     setRuns([...runs, newRun])
-    console.log([runs.map(run => run.distanceNumber).slice(-7)])
   }
 
   return (
@@ -45,6 +44,7 @@ const App = () => {
         addDistance={addDistance}
         addGoal={addGoal}
         addRun={addRun}
+        runs={runs}
       />
       <RightContent 
         runs={runs}
