@@ -9,7 +9,8 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 	const [showNewRun, setShowNewRun] = useState(true) 
 	const [showNewGoal, setShowNewGoal] = useState(true) 
 	const [changeNumbers, setChangeNumbers] = useState('Daily')
-	const [newArray, setNewArray] = useState()
+	const [newArray, setNewArray] = useState([])
+	const [newDistance, setNewDistance] = useState([])
 
 	const openCloseNewRun = () => {
 		setShowNewRun(!showNewRun)
@@ -25,7 +26,7 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 			let today = new Date()
 			if (changeNumbers === 'Daily') {
 				let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-				setNewArray([runs.filter((run) => run.date === date)])
+				setNewArray(runs.filter((run) => run.date === date))
 			} else if (changeNumbers === 'Weekly') {
 				today.setDate(today.getDate() - 7)
 				let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()
@@ -37,6 +38,9 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 			}
 		}
 
+		const runDistance = newArray.map(item => item.distanceNumber)
+		console.log(runDistance)
+		console.log(newArray)
 		changeDistance()
 	}
 

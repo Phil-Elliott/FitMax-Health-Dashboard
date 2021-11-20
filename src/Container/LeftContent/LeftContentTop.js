@@ -1,4 +1,5 @@
 const LeftContentTop = ({ openNewRun, distance, calories, time, changeData, newArray }) => {
+
 	return (
 		<div className='leftContentTop-container'>
 			<div className="top-header">
