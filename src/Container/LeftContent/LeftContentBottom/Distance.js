@@ -38,7 +38,7 @@ const Distance = ({ openNewGoal, distance, calories, time, distanceGoal, calorie
 			  	<div className='details'>
 			  		<p><strong>Progress</strong> - {distance} Miles</p>
 			  		<p><strong>Goal</strong> - {distanceGoal} Miles</p>
-			  		<p><strong>Complete</strong> - {((distance === 0) ? 0 : distance/distanceGoal*100).toFixed(2)}%</p>
+			  		<p><strong>Complete</strong> - {((distanceGoal === 0) ? 0 : distance/distanceGoal*100).toFixed(2)}%</p>
 			  	</div>
 		  	</div>
 		</div>

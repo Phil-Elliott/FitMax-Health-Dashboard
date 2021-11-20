@@ -1,5 +1,5 @@
 import React from 'react'
-import RightContentTop from './RightContentTop'
+import RightContentTop from './RightContentTop/RightContentTop'
 import RightContentBottom from './RightContentBottom'
 import './RightContent.scss'
 

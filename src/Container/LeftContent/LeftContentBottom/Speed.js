@@ -36,7 +36,7 @@ const Speed = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGo
 			  		<Doughnut data={data} />
 			  	</div>
 			  	<div className='details'>
-			  		<p><strong>Progress</strong> - {(time === 0) ? 0 : time/distance} Min Mile</p>
+			  		<p><strong>Progress</strong> - {(time === 0) ? 0 : (time/distance).toFixed(2)} Min Mile</p>
 			  		<p><strong>Goal</strong> - {timeGoal} Min Mile</p>
 			  		<p><strong>Complete</strong> - {((time === 0) ? 0 : timeGoal/(time/distance)*100).toFixed(2)}%</p>
 			  	</div>
