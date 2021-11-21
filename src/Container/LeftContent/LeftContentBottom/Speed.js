@@ -1,7 +1,7 @@
 import React from 'react'
 import { Doughnut } from 'react-chartjs-2';
 
-const Speed = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGoal, timeGoal, changePage }) => {
+const Speed = ({ openNewGoal, distanceGoal, caloriesGoal, timeGoal, changePage, newTime, newDistance }) => {
 
 	const data = {
 	  labels: [
@@ -10,7 +10,7 @@ const Speed = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGo
 	  ],
 	  datasets: [{
 	    label: 'My First Dataset',
-	    data: [(timeGoal/(time/distance)), ((timeGoal === 0) ? 0 : (1-(timeGoal/(time/distance))))],
+	    data: [(timeGoal/(newTime/newDistance)), ((timeGoal === 0) ? 0 : (1-(timeGoal/(newTime/newDistance))))],
 	    backgroundColor: [
 	      '#b20a08',
 	      'black',
@@ -36,9 +36,9 @@ const Speed = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGo
 			  		<Doughnut data={data} />
 			  	</div>
 			  	<div className='details'>
-			  		<p><strong>Progress</strong> - {(time === 0) ? 0 : (time/distance).toFixed(2)} Min Mile</p>
+			  		<p><strong>Progress</strong> - {newTime ? (newTime/newDistance).toFixed(2) : 0 } Min Mile</p>
 			  		<p><strong>Goal</strong> - {timeGoal} Min Mile</p>
-			  		<p><strong>Complete</strong> - {((time === 0) ? 0 : timeGoal/(time/distance)*100).toFixed(2)}%</p>
+			  		<p><strong>Complete</strong> - {newTime ? (timeGoal/(newTime/newDistance)*100).toFixed(2) : 0}%</p>
 			  	</div>
 		  	</div>
 		</div>

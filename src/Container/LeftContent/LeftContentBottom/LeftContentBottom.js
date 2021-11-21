@@ -4,7 +4,7 @@ import Distance from './Distance'
 import Calories from './Calories'
 import Speed from './Speed'
 
-const LeftContentBottom = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGoal, timeGoal }) => {
+const LeftContentBottom = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGoal, timeGoal, newTime, newDistance }) => {
 	const [change, setChange] = useState('')
 
 	const changePage = (e) => {
@@ -17,36 +17,32 @@ const LeftContentBottom = ({ openNewGoal, distance, calories, time, distanceGoal
 				? (
 					<Speed 
 						openNewGoal={openNewGoal}
-						distance={distance} 
-						calories={calories} 
-						time={time}
 						distanceGoal={distanceGoal} 
 						caloriesGoal={caloriesGoal} 
 						timeGoal={timeGoal}
 						changePage={changePage}
+						newTime={newTime}
+						newDistance={newDistance}
 					/>
 				) : ((change === 'Calories') 
 					? ( 
 						<Calories 
 							openNewGoal={openNewGoal}
-							distance={distance} 
 							calories={calories} 
-							time={time}
 							distanceGoal={distanceGoal} 
 							caloriesGoal={caloriesGoal} 
 							timeGoal={timeGoal}
 							changePage={changePage}
+							newDistance={newDistance}
 						/>
 					) : (
 						<Distance 
 							openNewGoal={openNewGoal}
-							distance={distance} 
-							calories={calories} 
-							time={time}
 							distanceGoal={distanceGoal} 
 							caloriesGoal={caloriesGoal} 
 							timeGoal={timeGoal}
 							changePage={changePage}
+							newDistance={newDistance}
 						/>))
 			}
 		</div>

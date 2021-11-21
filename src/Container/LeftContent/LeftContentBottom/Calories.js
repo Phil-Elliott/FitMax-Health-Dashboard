@@ -1,7 +1,7 @@
 import React from 'react'
 import { Doughnut } from 'react-chartjs-2';
 
-const Calories = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGoal, timeGoal, changePage }) => {
+const Calories = ({ openNewGoal, calories, distanceGoal, caloriesGoal, timeGoal, changePage, newDistance }) => {
 
 	const data = {
 	  labels: [
@@ -10,7 +10,7 @@ const Calories = ({ openNewGoal, distance, calories, time, distanceGoal, calorie
 	  ],
 	  datasets: [{
 	    label: 'My First Dataset',
-	    data: [(distance * 100), ((caloriesGoal === 0) ? 0 : (caloriesGoal - (distance * 100)))],
+	    data: [(newDistance * 100), ((caloriesGoal === 0) ? 0 : (caloriesGoal - (newDistance * 100)))],
 	    backgroundColor: [
 	      '#b20a08',
 	      '#070707',
@@ -36,9 +36,9 @@ const Calories = ({ openNewGoal, distance, calories, time, distanceGoal, calorie
 			  		<Doughnut data={data} />
 			  	</div>
 			  	<div className='details'>
-			  		<p><strong>Progress</strong> - {distance * 100} Cals</p>
+			  		<p><strong>Progress</strong> - {(newDistance) ? newDistance * 100 : Number(0)} Cals</p>
 			  		<p><strong>Goal</strong> - {caloriesGoal} Cals</p>
-			  		<p><strong>Complete</strong> - {((calories === 0) ? 0 : (distance * 100)/caloriesGoal*100).toFixed(2)}%</p>
+			  		<p><strong>Complete</strong> - {((caloriesGoal === 0) ? 0 : (newDistance * 100)/caloriesGoal*100).toFixed(2)}%</p>
 			  	</div>
 		  	</div>
 		</div>
