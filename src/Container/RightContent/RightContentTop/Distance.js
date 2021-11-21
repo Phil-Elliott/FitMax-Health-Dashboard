@@ -9,8 +9,8 @@ const Distance = ({ runs, changePage }) => {
     datasets: [
       {
         label: 'Miles',
-        data: (runData).slice(-7),
-        fill: false,
+        data: (runData).slice(-30),
+        fill: true,
         backgroundColor: '#b20a08',
         borderColor: 'rgba(255, 99, 132, 0.2)', 
       }

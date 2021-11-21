@@ -39,6 +39,10 @@ $font-color-secondary: white;
 	justify-content: space-between;
 }
 
+.options span {
+	margin: auto 0;
+}
+
 .new {
 	background-color: $primary-color;
 	border-radius: 5px;
@@ -134,4 +138,8 @@ $font-color-secondary: white;
 			opacity: .7;
 		}
 	}
+}
+
+.active {
+	background-color: #ababaa !important;
 }
