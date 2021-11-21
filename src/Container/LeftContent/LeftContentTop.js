@@ -9,21 +9,22 @@ const LeftContentTop = ({ openNewRun, distance, calories, time, changeData, newA
 				<nav className="options">
 			  		<p onClick={() => changeData('Daily')} style={{borderRadius: '50px 0 0 50px'}}>Daily</p>
 			  		<p onClick={() => changeData('Weekly')}>Weekly</p>
-			  		<p onClick={() => changeData('Monthly')} style={{borderRadius: '0 50px 50px 0'}}>Monthly</p>
+			  		<p onClick={() => changeData('Monthly')}>Monthly</p>
+			  		<p onClick={() => changeData('Total')} style={{borderRadius: '0 50px 50px 0'}}>Total</p>
 			  	</nav>
 			  		<p className="new" onClick={openNewRun}>New Run</p>
 			</section>
 			<div>
 				<p><strong>Distance</strong></p>
-				<p>{distance.toFixed(2)} Miles</p>
+				<p>{newDistance ? newDistance : 0 } Miles</p>
 			</div>
 			<div>
 				<p><strong>Calories</strong></p>
-				<p>{Number(distance) * Number(100)}</p>
+				<p>{newDistance ? (Number(newDistance) * Number(100)) : 0 }</p>
 			</div>
 			<div>
 				<p><strong>Average Speed</strong></p>
-				<p>{((time + 0) / (distance + .0001)).toFixed(2)} Mins Per Mile</p>
+				<p>{newDistance ? ((newTime + 0) / (newDistance + .0001)).toFixed(2) : 0 } Mins Per Mile</p>
 			</div>
 		</div>
 	)

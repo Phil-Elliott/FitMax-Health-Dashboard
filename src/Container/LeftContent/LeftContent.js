@@ -8,8 +8,6 @@ import './LeftContent.scss'
 const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, timeGoal, addDistance, addGoal, addRun, runs }) => {
 	const [showNewRun, setShowNewRun] = useState(true) 
 	const [showNewGoal, setShowNewGoal] = useState(true) 
-	const [changeNumbers, setChangeNumbers] = useState('Daily')
-	const [newArray, setNewArray] = useState([])
 	const [newDistance, setNewDistance] = useState()
 	const [newTime, setNewTime] = useState()
 
@@ -22,29 +20,34 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 	}
 
 	const changeData = (e) => {
-		setChangeNumbers(e)
+
 		const changeDistance = () => {
 			let today = new Date()
-			if (changeNumbers === 'Daily') {
+			if (e === 'Daily') {
 				let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-				setNewArray(runs.filter((run) => run.date === date))
-			} else if (changeNumbers === 'Weekly') {
+				let timedArray = runs.filter((run) => run.date === date)
+				sumArray(timedArray)
+			} else if (e === 'Weekly') {
 				today.setDate(today.getDate() - 7)
 				let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()
-				setNewArray([runs.filter((run) => run.date >= date)])
-			} else {
+				let timedArray = runs.filter((run) => run.date >= date)
+				sumArray(timedArray)
+			} else if (e === 'Monthly') {
 				today.setDate(today.getDate() - 30)
 				let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()
-				setNewArray([runs.filter((run) => run.date >= date)])
+				let timedArray = runs.filter((run) => run.date >= date)
+				sumArray(timedArray)
+			} else {
+				sumArray(runs)
 			}
 		}
 
-		const sumArray = () => {
-			const distance = newArray.map(item => item.distanceNumber) 
-			const time = newArray.map(item => item.lengthNumber)
+		const sumArray = (array) => {
+			const distance = array.map(item => item.distanceNumber) 
+			const time = array.map(item => item.lengthNumber)
 
+			var sum = 0;
 			function simpleArraySum(newItem) {
-			  var sum = 0;
 			  for (var i = 0; i < newItem.length; i++) {
 			    sum += Number(newItem[i])
 			  }
@@ -53,13 +56,9 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 
 			setNewDistance(simpleArraySum(distance))
 			setNewTime(simpleArraySum(time))
-			console.log(newDistance)
-			console.log(newTime)	
 		}
 
-		
 		changeDistance()
-		sumArray()
 	}
 
 	return (
@@ -79,6 +78,7 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 					closeNewRun={openCloseNewRun} 
 					addDistance={addDistance}
 					addRun={addRun}
+					changeData={changeData}
 					/>}
 			{showNewGoal ? 
 				<LeftContentBottom 
@@ -89,6 +89,8 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 					distanceGoal={distanceGoal} 
 					caloriesGoal={caloriesGoal} 
 					timeGoal={timeGoal}
+					newTime={newTime}
+					newDistance={newDistance}
 				/> 
 				: 
 				<AddNewGoal 
@@ -100,14 +102,3 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 }
 
 export default LeftContent
-
-/*
-	Have variables coming through app 
-	Have teranarys use words to choose the props going throgh
-	Need a daily, weekly and monthly (time and distance)
-	Could make a new array that shows both time and distance 
-		runs weekly runs monthly runs daily 
-
-
-
-*/
