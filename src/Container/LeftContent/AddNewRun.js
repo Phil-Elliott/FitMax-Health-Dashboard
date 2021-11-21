@@ -18,7 +18,7 @@ const AddNewRun = ({ closeNewRun, addDistance, addRun, changeData }) => {
 		addRun({distanceNumber, lengthNumber, date})
 
 		closeNewRun()
-		changeData()
+		
 	}
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import LeftContentTop from './LeftContentTop'
 import LeftContentBottom from './LeftContentBottom/LeftContentBottom'
 import AddNewRun from './AddNewRun'
@@ -60,6 +60,10 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 
 		changeDistance()
 	}
+
+	useEffect(() => {
+	  changeData('Daily')
+	}, [runs]);
 
 	return (
 		<div className="leftContent-container">
