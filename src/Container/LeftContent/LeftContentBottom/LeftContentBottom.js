@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Doughnut } from 'react-chartjs-2'
 import Distance from './Distance'
 import Calories from './Calories'
 import Speed from './Speed'

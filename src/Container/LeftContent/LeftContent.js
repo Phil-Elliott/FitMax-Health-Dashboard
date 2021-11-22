@@ -68,7 +68,7 @@ const LeftContent = ({ distanceGoal, caloriesGoal, timeGoal, addGoal, addRun, ru
 	//Uptates the data everytime the runs array changes 
 	useEffect(() => {
 	  changeData('Daily')
-	}, [runs]);
+	}, [runs])
 
 	return (
 		<div className="leftContent-container">

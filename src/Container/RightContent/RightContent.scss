@@ -86,3 +86,19 @@ $font-color-secondary: white;
 		margin-top: 0;
 	}
 }
+
+@media only screen and (max-width: 1200px) {
+	.rightContent-container {
+		padding: .5rem;
+	}
+	
+	.top-right-graph {
+		width: 650px;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.top-right-graph {
+		width: 400px;
+	}
+}

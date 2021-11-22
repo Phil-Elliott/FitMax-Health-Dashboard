@@ -1,7 +1,7 @@
 $base-color: #eaeaea;
 $background-color: white; 
 $primary-color: #b20a08;
-$font-color-primary: #030202;
+$font-color-primary: #030202; 
 $font-color-secondary: white;
 
 .leftContent-container {
@@ -143,4 +143,14 @@ $font-color-secondary: white;
 
 .active {
 	background-color: #ababaa !important;
+}
+
+@media only screen and (max-width: 1200px) {
+	.leftContent-container {
+		padding: .5rem;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+
 }
