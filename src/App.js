@@ -59,13 +59,3 @@ const App = () => {
 }
 
 export default App
-
-
-/*
-  1) Add extra pages
-        - Add sign in and register page
-        - Add settings page 
-  2) Add copys that of main content to other pages
-        - divert to this pages when they are clicked on 
-        - change the information and the data 
-*/

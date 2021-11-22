@@ -3,13 +3,14 @@ import { Line } from 'react-chartjs-2';
 
 const Calories = ({ runsOrdered, changePage }) => {
   const runData = runsOrdered.map(run => (run.distanceNumber * 100))
+  const reversedRunData = runData.reverse()
 
   const data = {
     labels: [...Array(32).keys()],
     datasets: [
       {
         label: 'Calories',
-        data: (runData).slice(-30),
+        data: (reversedRunData).slice(-30),
         fill: false,
         backgroundColor: '#b20a08',
         borderColor: 'rgba(255, 99, 132, 0.2)', 

@@ -2,15 +2,16 @@ import React from 'react'
 import { Line } from 'react-chartjs-2';
 
 const Speed = ({ runsOrdered, changePage }) => {
-  const timeData = runsOrdered.map(run => run.lengthNumber/run.distanceNumber) //do this with an assorted array 
+  const timeData = runsOrdered.map(run => run.lengthNumber/run.distanceNumber)  
+  const reversedTimeData = timeData.reverse()
 
   const data = {
-    labels: [...Array(32).keys()],//throw in date -30 days
+    labels: [...Array(32).keys()],
     datasets: [
       {
         label: 'Average Mile (mins)',
-        data: (timeData).slice(-30),
-        fill: true,
+        data: (reversedTimeData).slice(-30),
+        fill: false,
         backgroundColor: '#b20a08',
         borderColor: 'rgba(255, 99, 132, 0.2)', 
       }
