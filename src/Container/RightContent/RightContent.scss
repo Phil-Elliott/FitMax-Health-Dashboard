@@ -73,3 +73,14 @@ $font-color-secondary: white;
 		}
 	}
 }
+
+.recent-header-container {
+	display: grid;
+	grid-template-columns: 2.5fr 1fr; 
+	align-items: center;
+
+	p {
+		text-align: center;
+		margin-top: 0;
+	}
+}

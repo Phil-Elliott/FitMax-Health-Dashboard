@@ -1,14 +1,17 @@
 import { FaTimes } from 'react-icons/fa'
 
-const RightContentBottom = ({ runsOrdered, onDelete }) => {
+const RightContentBottom = ({ runsOrdered, onDelete, change }) => {
 	const runDistance = runsOrdered.map(run => run.distanceNumber)
 	const runDate = runsOrdered.map(run => run.date)
 	const runSpeed = runsOrdered.map(run => run.lengthNumber)
 
 	return (
-		<div className="main-right-bottom">
+		<div className="main-right-bottom"> 
 			<div className="rightContentBottom-container">
-				<h1 style={{ marginTop: '0' }}>Recent Activities</h1>
+				<nav className='recent-header-container'>
+					<h1 style={{ marginTop: '0' }}>Recent Activities</h1>
+					<p className="new" onClick={change}>History</p>
+				</nav>
 				{runDate[0] &&
 					<div>
 						<p>{runDate[0]}</p>
