@@ -152,5 +152,11 @@ $font-color-secondary: white;
 }
 
 @media only screen and (max-width: 700px) {
+	.leftContentBottom-container {
+		height: 54vh;
+	}
 
+	.leftContentTop-container {
+		height: 52vh;
+	}
 }
