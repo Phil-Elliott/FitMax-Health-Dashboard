@@ -4,9 +4,10 @@ import Distance from './Distance'
 import Calories from './Calories'
 import Speed from './Speed'
 
-const LeftContentBottom = ({ openNewGoal, distance, calories, time, distanceGoal, caloriesGoal, timeGoal, newTime, newDistance }) => {
+const LeftContentBottom = ({ openNewGoal, distanceGoal, caloriesGoal, timeGoal, newTime, newDistance }) => {
 	const [change, setChange] = useState('')
 
+	//Used to change the bottom left content between the three options
 	const changePage = (e) => {
 		setChange(e)
 	}
@@ -28,7 +29,6 @@ const LeftContentBottom = ({ openNewGoal, distance, calories, time, distanceGoal
 					? ( 
 						<Calories 
 							openNewGoal={openNewGoal}
-							calories={calories} 
 							distanceGoal={distanceGoal} 
 							caloriesGoal={caloriesGoal} 
 							timeGoal={timeGoal}

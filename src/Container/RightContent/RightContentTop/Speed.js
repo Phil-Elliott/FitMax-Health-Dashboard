@@ -2,7 +2,9 @@ import React from 'react'
 import { Line } from 'react-chartjs-2';
 
 const Speed = ({ runsOrdered, changePage }) => {
+  //Make an array of the times and distances ran to create an array of average mile times
   const timeData = runsOrdered.map(run => run.lengthNumber/run.distanceNumber)  
+  //Reverses the array
   const reversedTimeData = timeData.reverse()
 
   const data = {
@@ -10,7 +12,7 @@ const Speed = ({ runsOrdered, changePage }) => {
     datasets: [
       {
         label: 'Average Mile (mins)',
-        data: (reversedTimeData).slice(-30),
+        data: (reversedTimeData).slice(-29),
         fill: false,
         backgroundColor: '#b20a08',
         borderColor: 'rgba(255, 99, 132, 0.2)', 

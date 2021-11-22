@@ -7,6 +7,7 @@ import Speed from './Speed'
 const RightContentTop = ({ runsOrdered }) => {
   const [change, setChange] = useState('')
 
+  //Changes the data on the top right container
   const changePage = (e) => {
     setChange(e)
   }

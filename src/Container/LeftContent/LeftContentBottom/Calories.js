@@ -1,7 +1,7 @@
 import React from 'react'
 import { Doughnut } from 'react-chartjs-2';
 
-const Calories = ({ openNewGoal, calories, distanceGoal, caloriesGoal, timeGoal, changePage, newDistance }) => {
+const Calories = ({ openNewGoal, distanceGoal, caloriesGoal, timeGoal, changePage, newDistance }) => {
 
 	const data = {
 	  labels: [

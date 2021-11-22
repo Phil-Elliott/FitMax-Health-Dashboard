@@ -5,6 +5,7 @@ const AddNewRun = ({ closeNewRun, addDistance, addRun, changeData }) => {
 	const [lengthNumber, setlengthNumber] = useState('')
 	const [date, setDate] = useState('')
 
+	//Pushes the data after submitting and changes back to other content
 	const onSubmit = (e) => { 
 		e.preventDefault()
 
@@ -12,13 +13,8 @@ const AddNewRun = ({ closeNewRun, addDistance, addRun, changeData }) => {
 			alert('Please add distance')
 			return
 		}
-
-		addDistance(distanceNumber, lengthNumber)
-
 		addRun({distanceNumber, lengthNumber, date})
-
 		closeNewRun()
-		
 	}
 
 

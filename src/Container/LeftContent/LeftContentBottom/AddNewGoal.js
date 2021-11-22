@@ -5,6 +5,7 @@ const AddNewGoal = ({ closeNewGoal, addGoal }) => {
 	const [caloriesNumber, setCaloriesNumber] = useState('')
 	const [timeNumber, setTimeNumber] = useState('')
 
+	//Push goal information after submitting 
 	const onSubmit = (e) => {
 		e.preventDefault()
 

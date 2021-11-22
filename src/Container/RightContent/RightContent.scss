@@ -33,6 +33,7 @@ $font-color-secondary: white;
 .options {
 	cursor: pointer;
 	display: flex;
+
 	p {
 		background-color: black;
 		border: #ababaa 1px solid;
@@ -60,6 +61,7 @@ $font-color-secondary: white;
 	box-shadow: 0 0 16px 1px rgba(0,0,0,.3);
 	height: 47vh;
 	padding: 2rem;
+	
 	div {
 		border-bottom: 1px solid black;
 		display: grid;

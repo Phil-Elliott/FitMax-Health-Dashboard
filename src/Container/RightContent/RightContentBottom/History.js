@@ -2,6 +2,7 @@ import Run from './Run'
 
 const History = ({ runsOrdered, onDelete, change }) => {
 
+	//Maps through each run and displays the data with the ability to delete
 	return (
 		<div className="main-right-bottom"> 
 			<div className="rightContentBottom-container">

@@ -5,6 +5,7 @@ const RightContentBottom = ({ runsOrdered, onDelete, change }) => {
 	const runDate = runsOrdered.map(run => run.date)
 	const runSpeed = runsOrdered.map(run => run.lengthNumber)
 
+	//Shows the three most recent runs
 	return (
 		<div className="main-right-bottom"> 
 			<div className="rightContentBottom-container">

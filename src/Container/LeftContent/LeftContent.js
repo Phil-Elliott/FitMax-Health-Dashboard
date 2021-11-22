@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from 'react'
-import LeftContentTop from './LeftContentTop'
+import LeftContentTop from './LeftContentTop/LeftContentTop'
 import LeftContentBottom from './LeftContentBottom/LeftContentBottom'
-import AddNewRun from './AddNewRun'
-import AddNewGoal from './AddNewGoal'
+import AddNewRun from './LeftContentTop/AddNewRun'
+import AddNewGoal from './LeftContentBottom/AddNewGoal'
 import './LeftContent.scss'
 
-const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, timeGoal, addDistance, addGoal, addRun, runs }) => {
+const LeftContent = ({ distanceGoal, caloriesGoal, timeGoal, addGoal, addRun, runs }) => {
 	const [showNewRun, setShowNewRun] = useState(true) 
 	const [showNewGoal, setShowNewGoal] = useState(true) 
 	const [newDistance, setNewDistance] = useState()
 	const [newTime, setNewTime] = useState()
 
+	//Toggles between adding a new run and data - in the top left container
 	const openCloseNewRun = () => {
 		setShowNewRun(!showNewRun)
 	}
 
+	//Toggles between adding a new goal and data - in the bottom left container
 	const openCloseNewGoal = () => {
 		setShowNewGoal(!showNewGoal)
 	}
 
+	// Use to change the data between the four different time periods - only effects left containers
 	const changeData = (e) => {
-
+		//Changes the array based off of a number of days using the objects dates
 		const changeDistance = () => {
 			let today = new Date()
 			if (e === 'Daily') {
@@ -42,11 +45,12 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 			}
 		}
 
+		//Adds all of the data from the array 
 		const sumArray = (array) => {
 			const distance = array.map(item => item.distanceNumber) 
 			const time = array.map(item => item.lengthNumber)
 
-			var sum = 0;
+			let sum = 0;
 			function simpleArraySum(newItem) {
 			  for (var i = 0; i < newItem.length; i++) {
 			    sum += Number(newItem[i])
@@ -61,6 +65,7 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 		changeDistance()
 	}
 
+	//Uptates the data everytime the runs array changes 
 	useEffect(() => {
 	  changeData('Daily')
 	}, [runs]);
@@ -70,9 +75,6 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 			{showNewRun ? 
 				<LeftContentTop 
 					openNewRun={openCloseNewRun} 
-					distance={distance} 
-					calories={calories} 
-					time={time}
 					changeData={changeData}
 					newTime={newTime}
 					newDistance={newDistance}
@@ -80,16 +82,12 @@ const LeftContent = ({ distance, distanceGoal, calories, caloriesGoal, time, tim
 				: 
 				<AddNewRun 
 					closeNewRun={openCloseNewRun} 
-					addDistance={addDistance}
 					addRun={addRun}
 					changeData={changeData}
 					/>}
 			{showNewGoal ? 
 				<LeftContentBottom 
 					openNewGoal={openCloseNewGoal}
-					distance={distance} 
-					calories={calories} 
-					time={time}
 					distanceGoal={distanceGoal} 
 					caloriesGoal={caloriesGoal} 
 					timeGoal={timeGoal}

@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import RightContentTop from './RightContentTop/RightContentTop'
-import RightContentBottom from './RightContentBottom'
-import History from './History'
+import RightContentBottom from './RightContentBottom/RightContentBottom'
+import History from './RightContentBottom/History'
 import './RightContent.scss'
 
 const RightContent = ({ runs, onDelete }) => {
 	const [runsOrdered, setRunsOrdered] = useState([])
 	const [changePage, setChangePage] = useState(true)
 
+	//Orders the runs array by date - everytime the run array changes
 	useEffect(() => {
 	  setRunsOrdered(runs.sort(function(a,b){
 		  return new Date(b.date) - new Date(a.date);
 		}))
 	}, [runs]);
 
+	//Changes the page of the bottom right container
 	const change = () => {
 		setChangePage(!changePage)
 	}
