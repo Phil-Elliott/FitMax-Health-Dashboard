@@ -31,6 +31,10 @@ const App = () => {
     setRuns([...runs, newRun])
   }
 
+  const onDelete = (id) => {
+    setRuns(runs.filter((run) => run.id !== id))
+  }
+
   return (
     <div className="app-container">
       <Navigation />
@@ -48,6 +52,7 @@ const App = () => {
       />
       <RightContent 
         runs={runs}
+        onDelete={onDelete}
       />
     </div>
   )

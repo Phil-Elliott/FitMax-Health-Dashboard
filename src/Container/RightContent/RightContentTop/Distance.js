@@ -1,8 +1,8 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2';
 
-const Distance = ({ runs, changePage }) => {
-  const runData = runs.map(run => run.distanceNumber)
+const Distance = ({ runsOrdered, changePage }) => {
+  const runData = runsOrdered.map(run => run.distanceNumber)
 
   const data = {
     labels: [...Array(32).keys()],

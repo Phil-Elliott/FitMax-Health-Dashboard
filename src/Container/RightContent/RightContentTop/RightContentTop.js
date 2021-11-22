@@ -4,7 +4,7 @@ import Distance from './Distance'
 import Calories from './Calories'
 import Speed from './Speed'
 
-const RightContentTop = ({ runs }) => {
+const RightContentTop = ({ runsOrdered }) => {
   const [change, setChange] = useState('')
 
   const changePage = (e) => {
@@ -16,18 +16,18 @@ const RightContentTop = ({ runs }) => {
       {(change === 'Speed') 
         ? (
           <Speed 
-              runs = {runs}
+              runsOrdered={runsOrdered}
               changePage={changePage}
           />
         ) : ((change === 'Calories') 
           ? ( 
             <Calories 
-              runs = {runs}
+              runsOrdered={runsOrdered}
               changePage={changePage}
             />
           ) : (
             <Distance 
-              runs = {runs}
+              runsOrdered={runsOrdered}
               changePage={changePage}
             />))
       }

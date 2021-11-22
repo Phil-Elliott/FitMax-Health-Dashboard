@@ -1,16 +1,16 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2';
 
-const Speed = ({ runs, changePage }) => {
-  const timeData = runs.map(run => run.lengthNumber/run.distanceNumber)
+const Speed = ({ runsOrdered, changePage }) => {
+  const timeData = runsOrdered.map(run => run.lengthNumber/run.distanceNumber) //do this with an assorted array 
 
   const data = {
-    labels: [...Array(32).keys()],
+    labels: [...Array(32).keys()],//throw in date -30 days
     datasets: [
       {
         label: 'Average Mile (mins)',
-        data: (timeData).slice(-7),
-        fill: false,
+        data: (timeData).slice(-30),
+        fill: true,
         backgroundColor: '#b20a08',
         borderColor: 'rgba(255, 99, 132, 0.2)', 
       }

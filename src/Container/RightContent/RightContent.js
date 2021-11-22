@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import RightContentTop from './RightContentTop/RightContentTop'
 import RightContentBottom from './RightContentBottom'
 import './RightContent.scss'
 
-const RightContent = ({ runs }) => {
+const RightContent = ({ runs, onDelete }) => {
+	const [runsOrdered, setRunsOrdered] = useState([])
+
+	useEffect(() => {
+	  setRunsOrdered(runs.sort(function(a,b){
+		  return new Date(b.date) - new Date(a.date);
+		}))
+
+		console.log(runsOrdered)
+	}, [runs]);
+
+
 	return (
 		<div className="rightContent-container">
 			<RightContentTop 
-				runs={runs}
+				runsOrdered={runsOrdered}
 			/>
 			<RightContentBottom 
-				runs={runs}
+				runsOrdered={runsOrdered}
+				onDelete={onDelete}
 			/>
 		</div>
 	)
