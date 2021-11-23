@@ -4,7 +4,6 @@ import Navigation from './Container/Navigation/Navigation'
 import LeftContent from './Container/LeftContent/LeftContent'
 import RightContent from './Container/RightContent/RightContent'
 import SignInRegister from './Container/OtherPages/SignInRegister'
-import Register from './Container/OtherPages/Register'
 
 const App = () => {
   const [layout, setLayout] = useState('')

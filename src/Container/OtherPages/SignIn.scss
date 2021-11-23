@@ -16,7 +16,7 @@
 .signIn-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-gap: 250px;
+	grid-column-gap: 250px;
 	padding-top: 10rem;
 }
 
@@ -111,7 +111,40 @@
 		}
 
 		.sign-btn {
-			font-size: 1.2rem;
+			font-size: 1rem;
 		}
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+	.signIn-bg {
+		background-position: center;
+	}
+
+	.signIn-container {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-column-gap: 0px;
+		padding-top: 0em;
+	}
+
+	.left-signIn {
+		display: none;
+	}
+
+	.right-signIn {
+		margin: auto;
+		margin-top: 15rem;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.first-header {
+		left: 4.5rem;
+	}
+	.right-signIn {
+		font-size: 1rem;
+		margin: auto;
+		margin-top: 7rem;
 	}
 }
