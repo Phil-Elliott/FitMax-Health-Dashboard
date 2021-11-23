@@ -3,12 +3,20 @@ import './App.scss'
 import Navigation from './Container/Navigation/Navigation'
 import LeftContent from './Container/LeftContent/LeftContent'
 import RightContent from './Container/RightContent/RightContent'
+import SignInRegister from './Container/OtherPages/SignInRegister'
+import Register from './Container/OtherPages/Register'
 
 const App = () => {
+  const [layout, setLayout] = useState('')
   const [distanceGoal, setDistanceGoal] = useState(0)
   const [caloriesGoal, setCaloriesGoal] = useState(0)
   const [timeGoal, setTimeGoal] = useState(0)
   const [runs, setRuns] = useState([])
+
+  //Used to change from SignIn, Register, Settings, and Dashboard
+  const changePage = (e) => {
+    setLayout(e)
+  }
 
   //Adds the three different goals - through bottom left container 
   const addGoal = (d, c, t) => {
@@ -31,19 +39,30 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <Navigation />
-      <LeftContent 
-        distanceGoal={distanceGoal}
-        caloriesGoal={caloriesGoal}
-        timeGoal={timeGoal}
-        addGoal={addGoal}
-        addRun={addRun}
-        runs={runs}
-      />
-      <RightContent 
-        runs={runs}
-        onDelete={onDelete}
-      />
+      {(layout === 'main') ? (
+        <>
+          <Navigation 
+            changePage={changePage}
+          />
+          <LeftContent 
+            distanceGoal={distanceGoal}
+            caloriesGoal={caloriesGoal}
+            timeGoal={timeGoal}
+            addGoal={addGoal}
+            addRun={addRun}
+            runs={runs}
+          />
+          <RightContent 
+            runs={runs}
+            onDelete={onDelete}
+          />
+        </>
+        ) : (
+            <SignInRegister 
+              changePage={changePage}
+            />
+          )
+      }
     </div>
   )
 }

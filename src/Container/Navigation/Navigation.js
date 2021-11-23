@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Navigation.scss'
 import { FaHeartbeat, FaRunning, FaBiking, FaSwimmer, FaCog, FaSignOutAlt } from 'react-icons/fa'
 
-const Navigation = () => {
+const Navigation = ({ changePage }) => {
 	const [navClass, setNavClass] = useState('nav-nav')
 
 	const changeClass = () => {
@@ -39,7 +39,7 @@ const Navigation = () => {
 				</div>
 				<div className="sign-out">
 					<FaSignOutAlt className="icon"/>
-					<h3>Sign out</h3>
+					<h3 onClick={() => changePage('register')}>Sign out</h3>
 				</div>
 			</nav>
 		</div>
