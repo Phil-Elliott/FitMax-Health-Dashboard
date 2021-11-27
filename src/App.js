@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./App.scss"
+import axios from "axios"
 import Navigation from "./Container/Navigation/Navigation"
 import LeftContent from "./Container/LeftContent/LeftContent"
 import RightContent from "./Container/RightContent/RightContent"
@@ -56,6 +57,20 @@ const App = () => {
   const onDelete = (id) => {
     setRuns(runs.filter((run) => run.id !== id))
   }
+
+  const newPut = {
+    id: user.id,
+    runs: runs,
+  }
+
+  // Used to update the database with the new runs
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.put("http://localhost:3001/run", newPut)
+      console.log(user.id)
+    }
+    fetchData()
+  }, [runs])
 
   return (
     <div className="app-container">
