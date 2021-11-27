@@ -1,27 +1,48 @@
-import React, { useState } from 'react'
-import './App.scss'
-import Navigation from './Container/Navigation/Navigation'
-import LeftContent from './Container/LeftContent/LeftContent'
-import RightContent from './Container/RightContent/RightContent'
-import SignInRegister from './Container/OtherPages/SignInRegister'
+import React, { useState } from "react"
+import "./App.scss"
+import Navigation from "./Container/Navigation/Navigation"
+import LeftContent from "./Container/LeftContent/LeftContent"
+import RightContent from "./Container/RightContent/RightContent"
+import SignInRegister from "./Container/OtherPages/SignInRegister"
 
 const App = () => {
-  const [layout, setLayout] = useState('')
+  const [layout, setLayout] = useState("")
   const [distanceGoal, setDistanceGoal] = useState(0)
   const [caloriesGoal, setCaloriesGoal] = useState(0)
   const [timeGoal, setTimeGoal] = useState(0)
   const [runs, setRuns] = useState([])
+  const [user, setUser] = useState({
+    id: "",
+    name: "",
+    email: "",
+    password: "",
+    runs: [],
+    joined: "",
+  })
+
+  //Used to load the users data when they signIn
+  const loadUser = (data) => {
+    setUser({
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      runs: data.runs,
+      joined: data.joined,
+    })
+    console.log(user)
+  }
 
   //Used to change from SignIn, Register, Settings, and Dashboard
   const changePage = (e) => {
     setLayout(e)
   }
 
-  //Adds the three different goals - through bottom left container 
+  //Adds the three different goals - through bottom left container
   const addGoal = (d, c, t) => {
     setDistanceGoal(Number(d))
     setCaloriesGoal(Number(c))
-    setTimeGoal(Number(t))  
+    setTimeGoal(Number(t))
   }
 
   //Adds a run to the array and gives it an id - through the top left container
@@ -38,12 +59,10 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {(layout === 'main') ? (
+      {layout === "main" ? (
         <>
-          <Navigation 
-            changePage={changePage}
-          />
-          <LeftContent 
+          <Navigation changePage={changePage} />
+          <LeftContent
             distanceGoal={distanceGoal}
             caloriesGoal={caloriesGoal}
             timeGoal={timeGoal}
@@ -51,17 +70,11 @@ const App = () => {
             addRun={addRun}
             runs={runs}
           />
-          <RightContent 
-            runs={runs}
-            onDelete={onDelete}
-          />
+          <RightContent runs={runs} onDelete={onDelete} />
         </>
-        ) : (
-            <SignInRegister 
-              changePage={changePage}
-            />
-          )
-      }
+      ) : (
+        <SignInRegister changePage={changePage} loadUser={loadUser} />
+      )}
     </div>
   )
 }
