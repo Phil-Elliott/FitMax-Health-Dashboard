@@ -5,6 +5,7 @@ import Navigation from "./Container/Navigation/Navigation"
 import LeftContent from "./Container/LeftContent/LeftContent"
 import RightContent from "./Container/RightContent/RightContent"
 import SignInRegister from "./Container/OtherPages/SignInRegister"
+import { getDefaultNormalizer } from "@testing-library/react"
 
 const App = () => {
   const [layout, setLayout] = useState("")
@@ -12,12 +13,17 @@ const App = () => {
   const [caloriesGoal, setCaloriesGoal] = useState(0)
   const [timeGoal, setTimeGoal] = useState(0)
   const [runs, setRuns] = useState([])
+  const [newRun, setNewRun] = useState({
+    id: "",
+    distanceNumber: "",
+    lengthNumber: "",
+    date: "",
+  })
   const [user, setUser] = useState({
     id: "",
     name: "",
     email: "",
     password: "",
-    runs: [],
     joined: "",
   })
 
@@ -31,7 +37,6 @@ const App = () => {
       runs: data.runs,
       joined: data.joined,
     })
-    console.log(user)
   }
 
   //Used to change from SignIn, Register, Settings, and Dashboard
@@ -49,8 +54,14 @@ const App = () => {
   //Adds a run to the array and gives it an id - through the top left container
   const addRun = (run) => {
     const id = Math.floor(Math.random() * 10000) + 1
-    const newRun = { id, ...run }
-    setRuns([...runs, newRun])
+    const lastRun = { id, ...run }
+    setRuns([...runs, lastRun])
+    setNewRun({
+      id: lastRun.id,
+      distanceNumber: lastRun.distanceNumber,
+      lengthNumber: lastRun.lengthNumber,
+      date: lastRun.date,
+    })
   }
 
   //Delete a run from the array - though the button on bottom right container
@@ -59,18 +70,31 @@ const App = () => {
   }
 
   const newPut = {
-    id: user.id,
-    runs: runs,
+    email: user.email,
+    id: newRun.id,
+    distancenumber: newRun.distanceNumber,
+    lengthnumber: newRun.lengthNumber,
+    joined: newRun.date,
   }
 
+  //add if statement(if run id has a match delete and same email, if not add)
   // Used to update the database with the new runs
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.put("http://localhost:3001/run", newPut)
-      console.log(user.id)
     }
     fetchData()
   }, [runs])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get("http://localhost:3001/profile/", {
+        params: { email: user.email },
+      })
+      console.log(result.data)
+    }
+    fetchData()
+  }, [user])
 
   return (
     <div className="app-container">
