@@ -13,12 +13,6 @@ const App = () => {
   const [caloriesGoal, setCaloriesGoal] = useState(0)
   const [timeGoal, setTimeGoal] = useState(0)
   const [runs, setRuns] = useState()
-  const [newRun, setNewRun] = useState({
-    id: "",
-    distanceNumber: "",
-    lengthNumber: "",
-    date: "",
-  })
   const [user, setUser] = useState({
     id: "",
     name: "",
@@ -56,37 +50,29 @@ const App = () => {
     const email = user.email
     const lastRun = { id, email, ...run }
     setRuns([...runs, lastRun])
-    console.log(lastRun)
-    console.log(runs)
-    setNewRun({
-      id: lastRun.id,
-      distancenumber: lastRun.distancenumber,
-      lengthnumber: lastRun.lengthnumber,
-      date: lastRun.date,
-    })
+    // Used to update the database with the new runs
+    const addData = async () => {
+      const result = await axios.put("http://localhost:3001/run", lastRun)
+    }
+    addData()
   }
 
   //Delete a run from the array - though the button on bottom right container
   const onDelete = (id) => {
-    setRuns(runs.filter((run) => run.id !== id))
-  }
-
-  const newPut = {
-    email: user.email,
-    id: newRun.id,
-    distancenumber: newRun.distancenumber,
-    lengthnumber: newRun.lengthnumber,
-    joined: newRun.date,
-  }
-
-  //add if statement(if run id has a match delete and same email, if not add)
-  // Used to update the database with the new runs
-  useEffect(() => {
+    const deleteData = async () => {
+      const result = await axios.delete("http://localhost:3001/delete/", {
+        params: { id: id },
+      })
+    }
+    deleteData()
     const fetchData = async () => {
-      const result = await axios.put("http://localhost:3001/run", newPut)
+      const result = await axios.get("http://localhost:3001/profile/", {
+        params: { email: user.email },
+      })
+      setRuns(result.data)
     }
     fetchData()
-  }, [runs])
+  }
 
   useEffect(() => {
     const fetchData = async () => {
