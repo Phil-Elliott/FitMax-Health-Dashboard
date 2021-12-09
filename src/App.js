@@ -12,7 +12,7 @@ const App = () => {
   const [distanceGoal, setDistanceGoal] = useState(0)
   const [caloriesGoal, setCaloriesGoal] = useState(0)
   const [timeGoal, setTimeGoal] = useState(0)
-  const [runs, setRuns] = useState([])
+  const [runs, setRuns] = useState()
   const [newRun, setNewRun] = useState({
     id: "",
     distanceNumber: "",
@@ -34,7 +34,6 @@ const App = () => {
       name: data.name,
       email: data.email,
       password: data.password,
-      runs: data.runs,
       joined: data.joined,
     })
   }
@@ -54,12 +53,15 @@ const App = () => {
   //Adds a run to the array and gives it an id - through the top left container
   const addRun = (run) => {
     const id = Math.floor(Math.random() * 10000) + 1
-    const lastRun = { id, ...run }
+    const email = user.email
+    const lastRun = { id, email, ...run }
     setRuns([...runs, lastRun])
+    console.log(lastRun)
+    console.log(runs)
     setNewRun({
       id: lastRun.id,
-      distanceNumber: lastRun.distanceNumber,
-      lengthNumber: lastRun.lengthNumber,
+      distancenumber: lastRun.distancenumber,
+      lengthnumber: lastRun.lengthnumber,
       date: lastRun.date,
     })
   }
@@ -72,8 +74,8 @@ const App = () => {
   const newPut = {
     email: user.email,
     id: newRun.id,
-    distancenumber: newRun.distanceNumber,
-    lengthnumber: newRun.lengthNumber,
+    distancenumber: newRun.distancenumber,
+    lengthnumber: newRun.lengthnumber,
     joined: newRun.date,
   }
 
@@ -91,7 +93,7 @@ const App = () => {
       const result = await axios.get("http://localhost:3001/profile/", {
         params: { email: user.email },
       })
-      console.log(result.data)
+      setRuns(result.data)
     }
     fetchData()
   }, [user])
