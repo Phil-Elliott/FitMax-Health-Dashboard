@@ -76,7 +76,7 @@ const App = () => {
       })
     }
     deleteData()
-    refresh()
+    setTimeout(refresh, 200)
   }
 
   useEffect(() => {
