@@ -1,6 +1,12 @@
 import React, { useState } from "react"
 
-const LeftContentTop = ({ openNewRun, changeData, newTime, newDistance }) => {
+const LeftContentTop = ({
+  openNewRun,
+  changeData,
+  newTime,
+  newDistance,
+  refresh,
+}) => {
   //Changes the background of the nav button that is clicked
   const [active, setActive] = useState("daily")
   const handleToggle = (name) => {
@@ -17,7 +23,7 @@ const LeftContentTop = ({ openNewRun, changeData, newTime, newDistance }) => {
           <span onClick={() => handleToggle("daily")}>
             <p
               className={active === "daily" ? "active" : "none"}
-              onClick={() => changeData("Daily")}
+              onClick={refresh}
               style={{ borderRadius: "50px 0 0 50px" }}
             >
               Daily

@@ -4,7 +4,6 @@ import LeftContentBottom from "./LeftContentBottom/LeftContentBottom"
 import AddNewRun from "./LeftContentTop/AddNewRun"
 import AddNewGoal from "./LeftContentBottom/AddNewGoal"
 import "./LeftContent.scss"
-import { FaRegGrinSquintTears } from "react-icons/fa"
 
 const LeftContent = ({
   distanceGoal,
@@ -13,6 +12,7 @@ const LeftContent = ({
   addGoal,
   addRun,
   runs,
+  refresh,
 }) => {
   const [showNewRun, setShowNewRun] = useState(true)
   const [showNewGoal, setShowNewGoal] = useState(true)
@@ -45,6 +45,7 @@ const LeftContent = ({
       })
       let today = new Date()
       if (e === "Daily") {
+        today.setDate(today.getDate())
         let date =
           today.getFullYear() +
           "-" +
@@ -52,6 +53,7 @@ const LeftContent = ({
           "-" +
           today.getDate()
         let timedArray = runs.filter((run) => run.date === date)
+
         sumArray(timedArray)
       } else if (e === "Weekly") {
         today.setDate(today.getDate() - 7)
@@ -111,6 +113,7 @@ const LeftContent = ({
           changeData={changeData}
           newTime={newTime}
           newDistance={newDistance}
+          refresh={refresh}
         />
       ) : (
         <AddNewRun
