@@ -32,6 +32,7 @@ const App = () => {
   }
 
   const refresh = () => {
+    console.log("it refreshed")
     const fetchData = async () => {
       const result = await axios.get("http://localhost:3001/profile/", {
         params: { email: user.email },
@@ -63,11 +64,12 @@ const App = () => {
       const result = await axios.put("http://localhost:3001/run", lastRun)
     }
     addData()
-    refresh()
+    setTimeout(refresh, 50)
   }
 
   //Delete a run from the array - though the button on bottom right container
   const onDelete = (id) => {
+    console.log(id)
     const deleteData = async () => {
       const result = await axios.delete("http://localhost:3001/delete/", {
         params: { id: id },
