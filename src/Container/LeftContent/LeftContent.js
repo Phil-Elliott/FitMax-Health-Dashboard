@@ -31,8 +31,9 @@ const LeftContent = ({
 
   // Use to change the data between the four different time periods - only effects left containers
   const changeData = (e) => {
-    //Changes the array based off of a number of days using the objects dates
+    //Changes the array based off of a number of days using the objects date
     const changeDistance = () => {
+      // Updates the dates of the runs into the correct format
       runs.forEach((run) => {
         let runDate = new Date(run.date)
         run.date =
@@ -44,6 +45,7 @@ const LeftContent = ({
         return runs
       })
       let today = new Date()
+      //used to display the run data from today
       if (e === "Daily") {
         today.setDate(today.getDate())
         let date =
@@ -55,6 +57,7 @@ const LeftContent = ({
         let timedArray = runs.filter((run) => run.date === date)
 
         sumArray(timedArray)
+        //used to display the run data from the past 7 days
       } else if (e === "Weekly") {
         today.setDate(today.getDate() - 7)
         let date =
@@ -65,6 +68,7 @@ const LeftContent = ({
           today.getDate()
         let timedArray = runs.filter((run) => run.date >= date)
         sumArray(timedArray)
+        //used to display the run data from the past 30 days
       } else if (e === "Monthly") {
         today.setDate(today.getDate() - 30)
         let date =
@@ -75,6 +79,7 @@ const LeftContent = ({
           today.getDate()
         let timedArray = runs.filter((run) => run.date >= date)
         sumArray(timedArray)
+        //used to display all of the run data
       } else {
         sumArray(runs)
       }

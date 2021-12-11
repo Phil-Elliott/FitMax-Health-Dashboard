@@ -12,6 +12,7 @@ const App = () => {
   const [caloriesGoal, setCaloriesGoal] = useState(0)
   const [timeGoal, setTimeGoal] = useState(0)
   const [runs, setRuns] = useState()
+  const [goals, setGoals] = useState()
   const [user, setUser] = useState({
     id: "",
     name: "",
@@ -31,13 +32,24 @@ const App = () => {
     })
   }
 
+  // Used to refresh the run array
   const refresh = () => {
-    console.log("it refreshed")
     const fetchData = async () => {
       const result = await axios.get("http://localhost:3001/profile/", {
         params: { email: user.email },
       })
       setRuns(result.data)
+    }
+    fetchData()
+  }
+
+  // Used to refresh the users goals
+  const getGoals = () => {
+    const fetchData = async () => {
+      const result = await axios.get("http://localhost:3001/goalsData/", {
+        params: { email: user.email },
+      })
+      setGoals(result.data)
     }
     fetchData()
   }
@@ -59,7 +71,6 @@ const App = () => {
     const id = Math.floor(Math.random() * 10000) + 1
     const email = user.email
     const lastRun = { id, email, ...run }
-    // Used to update the database with the new runs
     const addData = async () => {
       const result = await axios.put("http://localhost:3001/run", lastRun)
     }
@@ -67,7 +78,7 @@ const App = () => {
     setTimeout(refresh, 50)
   }
 
-  //Delete a run from the array - though the button on bottom right container
+  //Delete a run from the array - through the button on bottom right container
   const onDelete = (id) => {
     console.log(id)
     const deleteData = async () => {
@@ -79,8 +90,10 @@ const App = () => {
     setTimeout(refresh, 200)
   }
 
+  // refreshes the array everytime the user is changed
   useEffect(() => {
     refresh()
+    getGoals()
   }, [user])
 
   return (
