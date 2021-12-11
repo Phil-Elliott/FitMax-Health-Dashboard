@@ -12,7 +12,13 @@ const App = () => {
   const [caloriesGoal, setCaloriesGoal] = useState(0)
   const [timeGoal, setTimeGoal] = useState(0)
   const [runs, setRuns] = useState()
-  const [goals, setGoals] = useState()
+  const [goals, setGoals] = useState([
+    {
+      distance: "",
+      calories: "",
+      speed: "",
+    },
+  ])
   const [user, setUser] = useState({
     id: "",
     name: "",
@@ -59,11 +65,19 @@ const App = () => {
     setLayout(e)
   }
 
-  //Adds the three different goals - through bottom left container
+  // adds the new goals or updates the previous
   const addGoal = (d, c, t) => {
-    setDistanceGoal(Number(d))
-    setCaloriesGoal(Number(c))
-    setTimeGoal(Number(t))
+    let details = {
+      email: user.email,
+      distance: d,
+      calories: c,
+      time: t,
+    }
+    const addData = async () => {
+      const result = await axios.post("http://localhost:3001/goals", details)
+    }
+    addData()
+    setTimeout(getGoals, 50)
   }
 
   //Adds a run to the array and gives it an id - through the top left container
@@ -106,6 +120,7 @@ const App = () => {
             caloriesGoal={caloriesGoal}
             timeGoal={timeGoal}
             addGoal={addGoal}
+            goals={goals}
             addRun={addRun}
             runs={runs}
             refresh={refresh}
