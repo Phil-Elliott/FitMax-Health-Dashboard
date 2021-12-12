@@ -5,7 +5,7 @@ import AddNewRun from "./LeftContentTop/AddNewRun"
 import AddNewGoal from "./LeftContentBottom/AddNewGoal"
 import "./LeftContent.scss"
 
-const LeftContent = ({ addGoal, goals, addRun, runs, refresh }) => {
+const LeftContent = ({ addGoal, goals, addRun, runs, refresh, user }) => {
   const [showNewRun, setShowNewRun] = useState(true)
   const [showNewGoal, setShowNewGoal] = useState(true)
   const [newDistance, setNewDistance] = useState()
@@ -47,7 +47,6 @@ const LeftContent = ({ addGoal, goals, addRun, runs, refresh }) => {
           "-" +
           today.getDate()
         let timedArray = runs.filter((run) => run.date === date)
-
         sumArray(timedArray)
         //used to display the run data from the past 7 days
       } else if (e === "Weekly") {
@@ -102,6 +101,12 @@ const LeftContent = ({ addGoal, goals, addRun, runs, refresh }) => {
     changeData("Daily")
   }, [runs])
 
+  const fixWeekly = () => {
+    changeData("Monthly")
+    changeData("Monthly")
+    setTimeout(changeData, 5, "Weekly")
+  }
+
   return (
     <div className="leftContent-container">
       {showNewRun ? (
@@ -111,6 +116,7 @@ const LeftContent = ({ addGoal, goals, addRun, runs, refresh }) => {
           newTime={newTime}
           newDistance={newDistance}
           refresh={refresh}
+          fixWeekly={fixWeekly}
         />
       ) : (
         <AddNewRun
@@ -134,3 +140,8 @@ const LeftContent = ({ addGoal, goals, addRun, runs, refresh }) => {
 }
 
 export default LeftContent
+
+/*
+  Start of by seting a new state and running it using daily
+
+*/

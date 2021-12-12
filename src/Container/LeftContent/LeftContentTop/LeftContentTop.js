@@ -6,6 +6,7 @@ const LeftContentTop = ({
   newTime,
   newDistance,
   refresh,
+  fixWeekly,
 }) => {
   //Changes the background of the nav button that is clicked
   const [active, setActive] = useState("daily")
@@ -32,7 +33,7 @@ const LeftContentTop = ({
           <span onClick={() => handleToggle("weekly")}>
             <p
               className={active === "weekly" ? "active" : "none"}
-              onClick={() => changeData("Weekly")}
+              onClick={fixWeekly}
             >
               Weekly
             </p>

@@ -8,10 +8,15 @@ import SignInRegister from "./Container/OtherPages/SignInRegister"
 
 const App = () => {
   const [layout, setLayout] = useState("")
-  const [distanceGoal, setDistanceGoal] = useState(0)
-  const [caloriesGoal, setCaloriesGoal] = useState(0)
-  const [timeGoal, setTimeGoal] = useState(0)
-  const [runs, setRuns] = useState()
+  const [runs, setRuns] = useState([
+    {
+      email: "",
+      date: new Date(),
+      distancenumber: "",
+      lengthnumber: "",
+      id: "",
+    },
+  ])
   const [goals, setGoals] = useState([
     {
       distance: "",
@@ -94,7 +99,6 @@ const App = () => {
 
   //Delete a run from the array - through the button on bottom right container
   const onDelete = (id) => {
-    console.log(id)
     const deleteData = async () => {
       const result = await axios.delete("http://localhost:3001/delete/", {
         params: { id: id },
@@ -116,14 +120,12 @@ const App = () => {
         <>
           <Navigation changePage={changePage} />
           <LeftContent
-            distanceGoal={distanceGoal}
-            caloriesGoal={caloriesGoal}
-            timeGoal={timeGoal}
             addGoal={addGoal}
             goals={goals}
             addRun={addRun}
             runs={runs}
             refresh={refresh}
+            user={user}
           />
           <RightContent runs={runs} onDelete={onDelete} />
         </>
