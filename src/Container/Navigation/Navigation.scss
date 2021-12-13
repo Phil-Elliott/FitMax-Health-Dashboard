@@ -1,138 +1,137 @@
 $base-color: #eaeaea;
-$background-color: white; 
-$primary-color: #b20a08; 
+$background-color: white;
+$primary-color: #b20a08;
 $font-color-primary: #030202;
 $font-color-secondary: white;
 
 .navigation-container {
-	background-color: $font-color-primary; 
-	border-right: solid black 3px; 
-	color: $background-color;
-	padding: 1rem 1.5rem;
+  background-color: $font-color-primary;
+  border-right: solid black 3px;
+  color: $background-color;
+  padding: 1rem 1.5rem;
 
-	div {
-		display: flex;	 
-		align-items: center;
+  div {
+    display: flex;
+    align-items: center;
 
-		h1 {
-			font-size: 2.5rem;
-			padding-left: 1rem;
-		}
+    h1 {
+      font-size: 2.5rem;
+      padding-left: 1rem;
+    }
 
-		h3 {
-			cursor: pointer;
-			font-size: 1.5rem;
-			padding-left: 1rem;
-			&:hover {
-				color: $primary-color;
-			}
-		}
-	}
+    h3 {
+      cursor: pointer;
+      font-size: 1.5rem;
+      padding-left: 1rem;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
 }
 
 .sign-out {
-	margin-top: 13rem;
+  margin-top: 13rem;
 }
 
 .toggle-button {
-	position: absolute;
-	background-color: #030202;
-	border: none;
-	cursor: pointer;
-	top: 2.8rem;
-	right: -15rem;
-	display: none;
-	flex-direction: column;
-	justify-content: space-between;
-	width: 50px; 
-	height: 30px;
+  position: absolute;
+  background-color: #030202;
+  border: none;
+  cursor: pointer;
+  top: 2.8rem;
+  right: -15rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50px;
+  height: 30px;
 }
 
 .toggle-button .bar {
-	height: 3px; 
-	width: 100%; 
-	background-color: white; 
-	border-radius: 10px; 
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
 }
 
-
+.activeNav {
+  color: $primary-color;
+}
 
 @media only screen and (max-width: 1200px) {
+  .navigation-container {
+    background-color: $font-color-primary;
+    border-right: 0px;
+    color: $background-color;
+    padding: 1rem;
 
-	.navigation-container {
-		background-color: $font-color-primary; 
-		border-right: 0px; 
-		color: $background-color;
-		padding: 1rem;
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
 
-		.header {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin-bottom: 1rem;
+      h1 {
+        font-size: 3rem;
+        padding-left: 1rem;
+        margin: 0;
+      }
+    }
+  }
 
-			h1 {
-				font-size: 3rem;
-				padding-left: 1rem;
-				margin: 0;
-			}
-		}
-	}
+  .sign-out {
+    margin-top: 0rem;
+  }
 
-	.sign-out {
-		margin-top: 0rem;
-	}
+  .nav-nav {
+    display: flex;
+    justify-content: center;
 
-	.nav-nav {
-		display: flex;
-		justify-content: center;
+    div {
+      padding-right: 1rem;
 
-		div {
-			padding-right: 1rem;
+      h3 {
+        margin: 0;
+      }
 
-			h3 {
-				margin: 0;
-			}
-
-			.icon {
-				display: none;
-			}
-		}
-	}
+      .icon {
+        display: none;
+      }
+    }
+  }
 }
-
 
 @media only screen and (max-width: 700px) {
-	.header {
-		margin-right: 22rem;
+  .header {
+    margin-right: 22rem;
 
-		h1 {
-			font-size: 3rem !important;
-			margin: 0;
-			padding: 1rem;
-		}
-	}
+    h1 {
+      font-size: 3rem !important;
+      margin: 0;
+      padding: 1rem;
+    }
+  }
 
-	.toggle-button {
-		display: flex;
-	}
+  .toggle-button {
+    display: flex;
+  }
 
-	.nav-nav {
-		display: none;
-		flex-direction: column;
+  .nav-nav {
+    display: none;
+    flex-direction: column;
 
-		div {
-			padding: 1rem;
-			margin: 0 auto;
+    div {
+      padding: 1rem;
+      margin: 0 auto;
 
-			h3 {
-				font-size: 2.25rem !important;
-			}
-		}
-	}
+      h3 {
+        font-size: 2.25rem !important;
+      }
+    }
+  }
 
-	.active-nav {
-		display: flex;
-	}
+  .active-nav {
+    display: flex;
+  }
 }
-

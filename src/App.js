@@ -8,15 +8,8 @@ import SignInRegister from "./Container/OtherPages/SignInRegister"
 
 const App = () => {
   const [layout, setLayout] = useState("")
-  const [runs, setRuns] = useState([
-    {
-      email: "",
-      date: new Date(),
-      distancenumber: "",
-      lengthnumber: "",
-      id: "",
-    },
-  ])
+  const [runs, setRuns] = useState()
+  const [sportName, setSportName] = useState("running")
   const [goals, setGoals] = useState([
     {
       distance: "",
@@ -47,7 +40,7 @@ const App = () => {
   const refresh = () => {
     const fetchData = async () => {
       const result = await axios.get("http://localhost:3001/profile/", {
-        params: { email: user.email },
+        params: { email: user.email, sport: sportName },
       })
       setRuns(result.data)
     }
@@ -58,7 +51,7 @@ const App = () => {
   const getGoals = () => {
     const fetchData = async () => {
       const result = await axios.get("http://localhost:3001/goalsData/", {
-        params: { email: user.email },
+        params: { email: user.email, sport: sportName },
       })
       setGoals(result.data)
     }
@@ -77,6 +70,7 @@ const App = () => {
       distance: d,
       calories: c,
       time: t,
+      sport: sportName,
     }
     const addData = async () => {
       const result = await axios.post("http://localhost:3001/goals", details)
@@ -89,19 +83,20 @@ const App = () => {
   const addRun = (run) => {
     const id = Math.floor(Math.random() * 10000) + 1
     const email = user.email
-    const lastRun = { id, email, ...run }
+    const sport = sportName
+    const lastRun = { sport, id, email, ...run }
     const addData = async () => {
       const result = await axios.put("http://localhost:3001/run", lastRun)
     }
     addData()
-    setTimeout(refresh, 50)
+    setTimeout(refresh, 500)
   }
 
   //Delete a run from the array - through the button on bottom right container
   const onDelete = (id) => {
     const deleteData = async () => {
       const result = await axios.delete("http://localhost:3001/delete/", {
-        params: { id: id },
+        params: { id: id, sport: sportName },
       })
     }
     deleteData()
@@ -114,17 +109,28 @@ const App = () => {
     getGoals()
   }, [user])
 
+  // Change the name in the top left box
+  const changeName = (name) => {
+    setSportName(name)
+  }
+
+  useEffect(() => {
+    getGoals()
+    refresh()
+  }, [sportName])
+
   return (
     <div className="app-container">
       {layout === "main" ? (
         <>
-          <Navigation changePage={changePage} />
+          <Navigation changePage={changePage} changeName={changeName} />
           <LeftContent
             addGoal={addGoal}
             goals={goals}
             addRun={addRun}
             runs={runs}
             refresh={refresh}
+            sportName={sportName}
             user={user}
           />
           <RightContent runs={runs} onDelete={onDelete} />

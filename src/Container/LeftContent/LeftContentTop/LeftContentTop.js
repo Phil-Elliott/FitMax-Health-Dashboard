@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 const LeftContentTop = ({
   openNewRun,
@@ -6,18 +6,25 @@ const LeftContentTop = ({
   newTime,
   newDistance,
   refresh,
+  sportName,
   fixWeekly,
+  runs,
 }) => {
-  //Changes the background of the nav button that is clicked
   const [active, setActive] = useState("daily")
+
+  //Changes the background of the nav button that is clicked
   const handleToggle = (name) => {
     setActive(name)
   }
 
+  useEffect(() => {
+    setActive("daily")
+  }, [runs])
+
   return (
     <div className="leftContentTop-container">
       <div className="top-header">
-        <h1>Running</h1>
+        <h1 style={{ textTransform: "capitalize" }}>{sportName}</h1>
       </div>
       <section className="nav-container">
         <nav className="options">
