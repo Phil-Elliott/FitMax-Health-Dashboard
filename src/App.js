@@ -4,7 +4,7 @@ import axios from "axios"
 import Navigation from "./Container/Navigation/Navigation"
 import LeftContent from "./Container/LeftContent/LeftContent"
 import RightContent from "./Container/RightContent/RightContent"
-import SignInRegister from "./Container/OtherPages/SignInRegister"
+import SignInRegister from "./Container/SignIn-Register/SignInRegister"
 
 const App = () => {
   const [layout, setLayout] = useState("")

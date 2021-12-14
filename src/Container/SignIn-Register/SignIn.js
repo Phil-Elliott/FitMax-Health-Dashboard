@@ -4,6 +4,7 @@ import axios from "axios"
 const SignIn = ({ changePage, changeSign, loadUser }) => {
   const [signInEmail, setSignInEmail] = useState("")
   const [signInPassword, setSignInPassword] = useState("")
+  const [error, setError] = useState(false)
 
   //Grabs input value for email
   const onEmailChange = (e) => {
@@ -25,10 +26,15 @@ const SignIn = ({ changePage, changeSign, loadUser }) => {
   const onSubmitSignIn = () => {
     const fetchData = async () => {
       const result = await axios.post("http://localhost:3001/signin", newPost)
-      changePage("main")
-      loadUser(result.data)
+      if (result.data) {
+        changePage("main")
+        loadUser(result.data)
+      }
     }
     fetchData()
+    setTimeout(() => {
+      setError(true)
+    }, 250)
   }
 
   return (
@@ -54,6 +60,9 @@ const SignIn = ({ changePage, changeSign, loadUser }) => {
           className="password"
           onChange={onPasswordChange}
         />
+        <p className="error-message">
+          {error ? "Incorrect email or password" : ""}
+        </p>
         <input
           onClick={onSubmitSignIn}
           type="submit"
