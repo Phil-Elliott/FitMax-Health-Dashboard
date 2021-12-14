@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const AddNewRun = ({ closeNewRun, addDistance, addRun, changeData }) => {
+const AddNewRun = ({ closeNewRun, addRun }) => {
   const [distancenumber, setDistancenumber] = useState("")
   const [lengthnumber, setLengthnumber] = useState("")
   const [date, setDate] = useState("")
@@ -20,7 +20,7 @@ const AddNewRun = ({ closeNewRun, addDistance, addRun, changeData }) => {
   return (
     <div className="leftContentTop-container" onSubmit={onSubmit}>
       <div>
-        <h1 style={{ margin: "0" }}>Add Run</h1>
+        <h1 style={{ margin: "0" }}>Add</h1>
         <div className="close-container">
           <p className="close" onClick={closeNewRun}>
             Close
@@ -62,7 +62,7 @@ const AddNewRun = ({ closeNewRun, addDistance, addRun, changeData }) => {
             onChange={(e) => setLengthnumber(e.target.value)}
           />
         </div>
-        <input type="submit" value="Save Run" className="btn btn-block" />
+        <input type="submit" value="Save" className="btn btn-block" />
       </form>
     </div>
   )

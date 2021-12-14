@@ -145,6 +145,16 @@ $font-color-secondary: white;
   background-color: #ababaa !important;
 }
 
+@media only screen and (max-width: 1450px) {
+  .leftContent-container {
+    padding: 1rem 1rem 0rem;
+  }
+
+  .graph {
+    width: 180px;
+  }
+}
+
 @media only screen and (max-width: 1200px) {
   .leftContent-container {
     padding: 0.5rem;

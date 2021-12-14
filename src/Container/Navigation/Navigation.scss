@@ -31,7 +31,7 @@ $font-color-secondary: white;
 }
 
 .sign-out {
-  margin-top: 13rem;
+  margin-top: 12rem;
 }
 
 .toggle-button {
@@ -59,7 +59,7 @@ $font-color-secondary: white;
   color: $primary-color;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1450px) {
   .navigation-container {
     background-color: $font-color-primary;
     border-right: 0px;

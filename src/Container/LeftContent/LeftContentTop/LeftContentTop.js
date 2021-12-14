@@ -64,7 +64,7 @@ const LeftContentTop = ({
           </span>
         </nav>
         <p className="new" onClick={openNewRun}>
-          New Run
+          New
         </p>
       </section>
       <div>
