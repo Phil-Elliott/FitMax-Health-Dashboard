@@ -44,8 +44,7 @@ const Register = ({ changePage, changeSign, loadUser }) => {
   //Grabs input value for email
   const onEmailChange = (e) => {
     setRegisterEmail(e.target.value)
-    throwErrors()
-    setTimeout(console.log(submit), 500)
+    //throwErrors()
   }
 
   //Grabs input value for password

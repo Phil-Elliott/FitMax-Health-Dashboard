@@ -66,10 +66,6 @@ const Navigation = ({ changePage, changeName }) => {
             <span onClick={() => handleToggle("Swimming")}>Swimming</span>
           </h3>
         </div>
-        <div>
-          <FaCog className="icon" />
-          <h3>Settings</h3>
-        </div>
         <div className="sign-out">
           <FaSignOutAlt className="icon" />
           <h3 onClick={() => changePage("register")}>Sign out</h3>
