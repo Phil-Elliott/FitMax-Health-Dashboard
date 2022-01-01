@@ -64,7 +64,10 @@ const Register = ({ changePage, changeSign, loadUser }) => {
   // Post new object to server, changes to main page, sends new user data to app
   const onSubmitSignIn = () => {
     const fetchData = async () => {
-      const result = await axios.post("http://localhost:3001/register", newPost)
+      const result = await axios.post(
+        "https://warm-beach-67541.herokuapp.com/register",
+        newPost
+      )
       changePage("main")
       loadUser(result.data)
     }

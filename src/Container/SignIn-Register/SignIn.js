@@ -25,7 +25,10 @@ const SignIn = ({ changePage, changeSign, loadUser }) => {
   // Checks object on server, changes to main page, sends user data to app
   const onSubmitSignIn = () => {
     const fetchData = async () => {
-      const result = await axios.post("http://localhost:3001/signin", newPost)
+      const result = await axios.post(
+        "https://warm-beach-67541.herokuapp.com/signin",
+        newPost
+      )
       if (result.data) {
         changePage("main")
         loadUser(result.data)
@@ -34,7 +37,7 @@ const SignIn = ({ changePage, changeSign, loadUser }) => {
     fetchData()
     setTimeout(() => {
       setError(true)
-    }, 250)
+    }, 500)
   }
 
   return (

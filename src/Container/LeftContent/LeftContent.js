@@ -27,8 +27,10 @@ const LeftContent = ({ addGoal, goals, addRun, runs, refresh, sportName }) => {
       //Changes the array based off of a number of days using the objects date
       const changeDistance = () => {
         // Updates the dates of the runs into the correct format
+        /*
         runs.forEach((run) => {
           let runDate = new Date(run.date)
+          console.log(runDate)
           run.date =
             runDate.getFullYear() +
             "-" +
@@ -37,6 +39,8 @@ const LeftContent = ({ addGoal, goals, addRun, runs, refresh, sportName }) => {
             runDate.getDate()
           return runs
         })
+        */
+
         let today = new Date()
         //used to display the run data from today
         if (e === "Daily") {
@@ -44,9 +48,10 @@ const LeftContent = ({ addGoal, goals, addRun, runs, refresh, sportName }) => {
           let date =
             today.getFullYear() +
             "-" +
-            (today.getMonth() + 1) +
+            ("0" + (today.getMonth() + 1)).slice(-2) +
             "-" +
-            today.getDate()
+            ("0" + today.getDate()).slice(-2)
+          console.log(date)
           let timedArray = runs.filter((run) => run.date === date)
           sumArray(timedArray)
           //used to display the run data from the past 7 days
@@ -55,9 +60,9 @@ const LeftContent = ({ addGoal, goals, addRun, runs, refresh, sportName }) => {
           let date =
             today.getFullYear() +
             "-" +
-            (today.getMonth() + 1) +
+            ("0" + (today.getMonth() + 1)).slice(-2) +
             "-" +
-            today.getDate()
+            ("0" + today.getDate()).slice(-2)
           let timedArray = runs.filter((run) => run.date >= date)
           sumArray(timedArray)
           //used to display the run data from the past 30 days
@@ -66,9 +71,9 @@ const LeftContent = ({ addGoal, goals, addRun, runs, refresh, sportName }) => {
           let date =
             today.getFullYear() +
             "-" +
-            (today.getMonth() + 1) +
+            ("0" + (today.getMonth() + 1)).slice(-2) +
             "-" +
-            today.getDate()
+            ("0" + today.getDate()).slice(-2)
           let timedArray = runs.filter((run) => run.date >= date)
           sumArray(timedArray)
           //used to display all of the run data

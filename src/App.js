@@ -39,9 +39,12 @@ const App = () => {
   // Used to refresh the run array
   const refresh = () => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:3001/profile/", {
-        params: { email: user.email, sport: sportName },
-      })
+      const result = await axios.get(
+        "https://warm-beach-67541.herokuapp.com/profile/",
+        {
+          params: { email: user.email, sport: sportName },
+        }
+      )
       setRuns(result.data)
     }
     fetchData()
@@ -50,9 +53,12 @@ const App = () => {
   // Used to refresh the users goals
   const getGoals = () => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:3001/goalsData/", {
-        params: { email: user.email, sport: sportName },
-      })
+      const result = await axios.get(
+        "https://warm-beach-67541.herokuapp.com/goalsData/",
+        {
+          params: { email: user.email, sport: sportName },
+        }
+      )
       setGoals(result.data)
     }
     fetchData()
@@ -73,10 +79,13 @@ const App = () => {
       sport: sportName,
     }
     const addData = async () => {
-      const result = await axios.post("http://localhost:3001/goals", details)
+      const result = await axios.post(
+        "https://warm-beach-67541.herokuapp.com/goals",
+        details
+      )
     }
     addData()
-    setTimeout(getGoals, 50)
+    setTimeout(getGoals, 500)
   }
 
   //Adds a run to the array and gives it an id - through the top left container
@@ -86,7 +95,10 @@ const App = () => {
     const sport = sportName
     const lastRun = { sport, id, email, ...run }
     const addData = async () => {
-      const result = await axios.put("http://localhost:3001/run", lastRun)
+      const result = await axios.put(
+        "https://warm-beach-67541.herokuapp.com/run",
+        lastRun
+      )
     }
     addData()
     setTimeout(refresh, 500)
@@ -95,9 +107,12 @@ const App = () => {
   //Delete a run from the array - through the button on bottom right container
   const onDelete = (id) => {
     const deleteData = async () => {
-      const result = await axios.delete("http://localhost:3001/delete/", {
-        params: { id: id, sport: sportName },
-      })
+      const result = await axios.delete(
+        "https://warm-beach-67541.herokuapp.com/delete/",
+        {
+          params: { id: id, sport: sportName },
+        }
+      )
     }
     deleteData()
     setTimeout(refresh, 200)
@@ -143,3 +158,14 @@ const App = () => {
 }
 
 export default App
+
+/*
+    Create a function that is triggered when the runs are grabbed 
+    Will add one day to each of the dates within the array 
+    Could map through to do this and create a new array 
+
+    maybe change name of runs
+
+
+
+*/

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 const AddNewRun = ({ closeNewRun, addRun }) => {
   const [distancenumber, setDistancenumber] = useState("")
