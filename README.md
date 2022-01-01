@@ -1,6 +1,7 @@
 # FitMax Health Dashboard!
 
-[fitmax](https://user-images.githubusercontent.com/89685937/147853629-9d7ce557-1fb4-4d62-bf4b-6aa67ab589b2.gif)
+![fitmax](https://user-images.githubusercontent.com/89685937/147853639-415bf666-f1e8-4846-a358-26d8c646d191.gif)
+
 
 A React application used to track the cardio activities of the user. These activities can be compared with the goals that the user sets. The user's data is stored in a database created with PostgreSQL and connected to a server that was made with Node and Express.
 
