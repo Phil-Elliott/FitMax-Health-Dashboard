@@ -5,6 +5,9 @@
 
 A React application used to track the cardio activities of the user. These activities can be compared with the goals that the user sets. The user's data is stored in a database created with PostgreSQL and connected to a server that was made with Node and Express.
 
+Link to Server
+https://github.com/Phil-Elliott/Fitmax-Server
+
 ## How it works
 
 The user first registers or logs in with their email and password. The dashboard will then load with the users data. The dashboard has three four options on the navigation bar. These include running, biking, swimming, and a sign out button. The user can select the cardio activity and this will display any activity that they have entered in the past.
