@@ -4,16 +4,18 @@ import { Line } from "react-chartjs-2"
 const Distance = ({ runsOrdered, changePage }) => {
   //Make an array of the distances ran
   const runData = runsOrdered.map((run) => run.distancenumber)
+  const dates = runsOrdered.map((run) => run.date)
   //Reverses the array
   const reversedRunData = runData.reverse()
+  const reversedDates = dates.reverse()
 
   const data = {
-    labels: [...Array(32).keys()],
+    labels: reversedDates.slice(-7),
     datasets: [
       {
         label: "Miles",
-        data: reversedRunData.slice(-29),
-        fill: false,
+        data: reversedRunData.slice(-7),
+        fill: true,
         backgroundColor: "#b20a08",
         borderColor: "rgba(255, 99, 132, 0.2)",
       },

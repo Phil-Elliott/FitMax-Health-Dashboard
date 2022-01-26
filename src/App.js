@@ -158,14 +158,3 @@ const App = () => {
 }
 
 export default App
-
-/*
-    Create a function that is triggered when the runs are grabbed 
-    Will add one day to each of the dates within the array 
-    Could map through to do this and create a new array 
-
-    maybe change name of runs
-
-
-
-*/

@@ -26,21 +26,6 @@ const LeftContent = ({ addGoal, goals, addRun, runs, refresh, sportName }) => {
     if (runs) {
       //Changes the array based off of a number of days using the objects date
       const changeDistance = () => {
-        // Updates the dates of the runs into the correct format
-        /*
-        runs.forEach((run) => {
-          let runDate = new Date(run.date)
-          console.log(runDate)
-          run.date =
-            runDate.getFullYear() +
-            "-" +
-            (runDate.getMonth() + 1) +
-            "-" +
-            runDate.getDate()
-          return runs
-        })
-        */
-
         let today = new Date()
         //used to display the run data from today
         if (e === "Daily") {
@@ -51,7 +36,6 @@ const LeftContent = ({ addGoal, goals, addRun, runs, refresh, sportName }) => {
             ("0" + (today.getMonth() + 1)).slice(-2) +
             "-" +
             ("0" + today.getDate()).slice(-2)
-          console.log(date)
           let timedArray = runs.filter((run) => run.date === date)
           sumArray(timedArray)
           //used to display the run data from the past 7 days

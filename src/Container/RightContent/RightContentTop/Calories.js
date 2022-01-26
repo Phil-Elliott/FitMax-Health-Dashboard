@@ -4,16 +4,18 @@ import { Line } from "react-chartjs-2"
 const Calories = ({ runsOrdered, changePage }) => {
   //Make an array of the distances ran multiplied to produce the calories burned
   const runData = runsOrdered.map((run) => run.distancenumber * 100)
+  const dates = runsOrdered.map((run) => run.date)
   //Reverses the array
   const reversedRunData = runData.reverse()
+  const reversedDates = dates.reverse()
 
   const data = {
-    labels: [...Array(32).keys()],
+    labels: reversedDates.slice(-7),
     datasets: [
       {
         label: "Calories",
-        data: reversedRunData.slice(-29),
-        fill: false,
+        data: reversedRunData.slice(-7),
+        fill: true,
         backgroundColor: "#b20a08",
         borderColor: "rgba(255, 99, 132, 0.2)",
       },

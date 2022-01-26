@@ -6,16 +6,18 @@ const Speed = ({ runsOrdered, changePage }) => {
   const timeData = runsOrdered.map(
     (run) => run.lengthnumber / run.distancenumber
   )
+  const dates = runsOrdered.map((run) => run.date)
   //Reverses the array
   const reversedTimeData = timeData.reverse()
+  const reversedDates = dates.reverse()
 
   const data = {
-    labels: [...Array(32).keys()],
+    labels: reversedDates.slice(-7),
     datasets: [
       {
         label: "Average Mile (mins)",
-        data: reversedTimeData.slice(-29),
-        fill: false,
+        data: reversedTimeData.slice(-7),
+        fill: true,
         backgroundColor: "#b20a08",
         borderColor: "rgba(255, 99, 132, 0.2)",
       },
@@ -25,7 +27,7 @@ const Speed = ({ runsOrdered, changePage }) => {
   const options = {
     scales: {
       y: {
-        beginAtZero: true,
+        beginAtZero: false,
       },
     },
   }

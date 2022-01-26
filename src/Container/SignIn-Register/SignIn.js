@@ -37,7 +37,7 @@ const SignIn = ({ changePage, changeSign, loadUser }) => {
     fetchData()
     setTimeout(() => {
       setError(true)
-    }, 500)
+    }, 2000)
   }
 
   return (
